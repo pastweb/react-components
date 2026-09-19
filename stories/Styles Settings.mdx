@@ -1,0 +1,166 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title='Style Settings' />
+
+# Style Settings
+
+As standard the components props contains a `cls` prop which is a customised instance of the "cl" function imported
+from `@pastweb/tools`. This function allow the module composition reducing the amount of css necessary to apply common style rules
+as example for utility classes (is-primary, is-warning...) keeping consistancy in the whole codebase.
+
+The `@` alias points always to the `src` project directory.
+
+```css
+// @/styles/variables.scss
+
+@forward '@pastweb/tools/styles/variables.scss';
+@forward '@pastweb/components-core/styles/variables.scss';
+
+// Colors
+$white_color: #fff;
+$grey-100_color: #f9fafb;
+$grey-200_color: #eaecf0;
+$grey-300_color: #d0d5dd;
+$grey-400_color: #d6d6d6;
+$grey-500_color: #667085;
+$grey-600_color: #475467;
+$grey-700_color: #344054;
+$grey-800_color: #1d2939;
+$grey-900_color: #101828;
+$black_color: #000;
+
+$grey_color: $grey-500_color;
+$grey-light_color: $grey-300_color;
+
+$primary_color: #61dafb;
+$primary-light_color: #bbeffd;
+$secondary_color: #087ea4;
+$secondary-light_color: #69adc4;
+
+$link_color: $primary_color;
+
+$info_color: #4a72ff;
+$info-light_color: #7391ff;
+
+$success_color: #03af66;
+$success-light_color: rgb(141, 213, 183);
+
+$warning_color: #e3ac1f;
+$warning-light_color: #fedf8f;
+
+$danger_color: #b84a45;
+$danger-light_color: #e79a96;
+```
+
+```css
+// @/styles/css-variables.scss
+
+@forward '@pastweb/tools/styles/css-variables.scss';
+@forward '@pastweb/components-core/styles/css-variables.scss';
+@use './variables' as *;
+
+:root {
+  --white_color : #{ $white_color };
+
+  --grey_color: #{ $grey_color };
+  --grey-light_color: #{ $grey-light_color };
+
+  --black_color: #{ $black_color };
+
+  --primary_color: #{ $primary_color };
+  --primary-light_color: #{ $primary-light_color };
+
+  --secondary_color: #{ $secondary_color };
+  --secondary-light_color: #{ $secondary-light_color };
+
+  --link_color: #{ $link_color };
+
+  --info_color: #{ $info_color };
+  --info-light_color: #{ $info-light_color };
+
+  --success_color: #{ $success_color };
+  --success-light_color: #{ $success-light_color };
+
+  --warning_color: #{ $warning_color };
+  --warning-light_color: #{ $warning-light_color };
+
+  --danger_color: #{ $danger_color };
+  --danger-light_color: #{ $danger-light_color };
+}
+```
+
+```css
+// @/styles/themes.module.scss
+
+.is-primary {
+  --pw_control_background-color: var(--primary-light_color);
+  --pw_border-color: var(--primary_color);
+  --pw_color_box-shadow: var(--primary_color);
+
+  &.is-outlined {
+    --pw_border-color: var(--primary_color);
+    --pw_text_strong_color: var(--primary_color);
+  }
+}
+
+.is-info {
+  --pw_control_background-color: var(--info-light_color);
+  --pw_border-color: var(--info_color);
+  --pw_color_box-shadow: var(--info_color);
+
+  &.is-outlined {
+    --pw_border-color: var(--info_color);
+    --pw_text_strong_color: var(--info_color);
+  }
+}
+
+.is-success {
+  --pw_control_background-color: var(--success-light_color);
+  --pw_border-color: var(--success_color);
+  --pw_color_box-shadow: var(--success_color);
+
+  &.is-outlined {
+    --pw_border-color: var(--success_color);
+    --pw_text_strong_color: var(--success_color);
+  }
+}
+
+.is-warning {
+  --pw_control_background-color: var(--warning-light_color);
+  --pw_border-color: var(--warning_color);
+  --pw_color_box-shadow: var(--warning_color);
+
+  &.is-outlined {
+    --pw_border-color: var(--warning_color);
+    --pw_text_strong_color: var(--warning_color);
+  }
+}
+
+.is-danger {
+  --pw_control_background-color: var(--danger-light_color);
+  --pw_border-color: var(--danger_color);
+  --pw_color_box-shadow: var(--danger_color);
+
+  &.is-outlined {
+    --pw_border-color: var(--danger_color);
+    --pw_text_strong_color: var(--danger_color);
+    --pw_color_box-shadow: var(--danger-light_color);
+  }
+}
+```
+
+```ts
+// @/styles/cl.ts
+
+import { cl as c } from '@pastweb/tools';
+
+import themes from '@/styles/themes.module.scss';
+
+export const cl = c.setClasses(themes);
+```
+
+```ts
+// @/styles/index.ts
+
+export { cl } from './cl';
+```

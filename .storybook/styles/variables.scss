@@ -1,0 +1,37 @@
+@forward '@pastweb/tools/styles/variables.scss';
+@forward '@pastweb/components-core/styles/variables.scss';
+
+// Colors
+$white_color: #fff;
+$grey-100_color: #f9fafb;
+$grey-200_color: #eaecf0;
+$grey-300_color: #d0d5dd;
+$grey-400_color: #d6d6d6;
+$grey-500_color: #667085;
+$grey-600_color: #475467;
+$grey-700_color: #344054;
+$grey-800_color: #1d2939;
+$grey-900_color: #101828;
+$black_color: #000;
+
+$grey_color: $grey-500_color;
+$grey-light_color: $grey-300_color;
+
+$primary_color: #61dafb;
+$primary-light_color: #bbeffd;
+$secondary_color: #087ea4;
+$secondary-light_color: #69adc4;
+
+$link_color: $primary_color;
+
+$info_color: #4a72ff;
+$info-light_color: #7391ff;
+
+$success_color: #03af66;
+$success-light_color: rgb(141, 213, 183);
+
+$warning_color: #e3ac1f;
+$warning-light_color: #fedf8f;
+
+$danger_color: #b84a45;
+$danger-light_color: #e79a96;

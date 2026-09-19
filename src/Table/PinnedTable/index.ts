@@ -1,0 +1,1 @@
+export { PinnedTable } from './PinnedTable';

@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as InputStories from './Input.stories';
+import InputComponent from './components/Input/Input.tsx?raw';
+import InputComponentTypes from './components/Input/types.ts?raw';
+import InputComponentIndex from './components/Input/index.ts?raw';
+
+<Meta of={InputStories} />
+
+# Input
+
+Input renders a labelled native text, search, password, email, or number field
+with optional affixes, loading state, and number step controls.
+
+## React usage
+
+```tsx
+import { Input } from '@/react/components/Input';
+
+export function MyComponent() {
+  return <Input label='Email address' type='email' />;
+}
+```
+
+## Input implementation
+
+<Tabs
+  defaultSelected='input-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'input-component',
+      title: 'Input.tsx',
+      children: <Source code={InputComponent} language='tsx' />,
+    },
+    {
+      id: 'input-types',
+      title: 'types.ts',
+      children: <Source code={InputComponentTypes} language='ts' />,
+    },
+    {
+      id: 'input-index',
+      title: 'index.ts',
+      children: <Source code={InputComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Input Preview
+
+<Canvas
+  of={InputStories.Input}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={InputStories.Input} />

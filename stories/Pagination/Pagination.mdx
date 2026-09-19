@@ -1,0 +1,55 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as PaginationStories from './Pagination.stories';
+import PaginationComponent from './components/Pagination/Pagination.tsx?raw';
+import PaginationComponentTypes from './components/Pagination/types.ts?raw';
+import PaginationComponentIndex from './components/Pagination/index.ts?raw';
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+Pagination provides bounded navigation through a known number of result pages.
+
+## React usage
+
+```tsx
+import { Pagination } from '@/react/components/Pagination';
+
+export function MyComponent() {
+  return <Pagination current={2} total={10} ariaLabel='Search results pages' />;
+}
+```
+
+## Pagination implementation
+
+<Tabs
+  defaultSelected='pagination-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'pagination-component',
+      title: 'Pagination.tsx',
+      children: <Source code={PaginationComponent} language='tsx' />,
+    },
+    {
+      id: 'pagination-types',
+      title: 'types.ts',
+      children: <Source code={PaginationComponentTypes} language='ts' />,
+    },
+    {
+      id: 'pagination-index',
+      title: 'index.ts',
+      children: <Source code={PaginationComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Pagination Preview
+
+<Canvas
+  of={PaginationStories.Pagination}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={PaginationStories.Pagination} />

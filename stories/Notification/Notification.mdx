@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as NotificationStories from './Notification.stories';
+import NotificationComponent from './components/Notification/Notification.tsx?raw';
+import NotificationComponentTypes from './components/Notification/types.ts?raw';
+import NotificationComponentIndex from './components/Notification/index.ts?raw';
+
+<Meta of={NotificationStories} />
+
+# Notification
+
+Notification presents a short, politely announced message with optional title,
+close action, and footer content.
+
+## React usage
+
+```tsx
+import { Notification } from '@/react/components/Notification';
+
+export function MyComponent() {
+  return <Notification title='Saved'>Your changes are now available.</Notification>;
+}
+```
+
+## Notification implementation
+
+<Tabs
+  defaultSelected='notification-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'notification-component',
+      title: 'Notification.tsx',
+      children: <Source code={NotificationComponent} language='tsx' />,
+    },
+    {
+      id: 'notification-types',
+      title: 'types.ts',
+      children: <Source code={NotificationComponentTypes} language='ts' />,
+    },
+    {
+      id: 'notification-index',
+      title: 'index.ts',
+      children: <Source code={NotificationComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Notification Preview
+
+<Canvas
+  of={NotificationStories.Notification}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={NotificationStories.Notification} />

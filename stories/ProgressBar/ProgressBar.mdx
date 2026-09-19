@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as ProgressBarStories from './ProgressBar.stories';
+import ProgressBarComponent from './components/ProgressBar/ProgressBar.tsx?raw';
+import ProgressBarComponentTypes from './components/ProgressBar/types.ts?raw';
+import ProgressBarComponentIndex from './components/ProgressBar/index.ts?raw';
+
+<Meta of={ProgressBarStories} />
+
+# ProgressBar
+
+ProgressBar communicates the completion of a determinate task in linear or
+circular form.
+
+## React usage
+
+```tsx
+import { ProgressBar } from '@/react/components/ProgressBar';
+
+export function MyComponent() {
+  return <ProgressBar current={60} total={100} ariaLabel='Upload progress' />;
+}
+```
+
+## ProgressBar implementation
+
+<Tabs
+  defaultSelected='progressbar-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'progressbar-component',
+      title: 'ProgressBar.tsx',
+      children: <Source code={ProgressBarComponent} language='tsx' />,
+    },
+    {
+      id: 'progressbar-types',
+      title: 'types.ts',
+      children: <Source code={ProgressBarComponentTypes} language='ts' />,
+    },
+    {
+      id: 'progressbar-index',
+      title: 'index.ts',
+      children: <Source code={ProgressBarComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## ProgressBar Preview
+
+<Canvas
+  of={ProgressBarStories.ProgressBar}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={ProgressBarStories.ProgressBar} />

@@ -1,0 +1,55 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as TagStories from './Tag.stories';
+import TagComponent from './components/Tag/Tag.tsx?raw';
+import TagComponentTypes from './components/Tag/types.ts?raw';
+import TagComponentIndex from './components/Tag/index.ts?raw';
+
+<Meta of={TagStories} />
+
+# Tag
+
+Tag displays a short, non-interactive category or status label.
+
+## React usage
+
+```tsx
+import { Tag } from '@/react/components/Tag';
+
+export function MyComponent() {
+  return <Tag>New</Tag>;
+}
+```
+
+## Tag implementation
+
+<Tabs
+  defaultSelected='tag-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'tag-component',
+      title: 'Tag.tsx',
+      children: <Source code={TagComponent} language='tsx' />,
+    },
+    {
+      id: 'tag-types',
+      title: 'types.ts',
+      children: <Source code={TagComponentTypes} language='ts' />,
+    },
+    {
+      id: 'tag-index',
+      title: 'index.ts',
+      children: <Source code={TagComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Tag Preview
+
+<Canvas
+  of={TagStories.Tag}
+  className='has-preview-padding'
+  layout='fullscreen'
+/>
+<Controls of={TagStories.Tag} />

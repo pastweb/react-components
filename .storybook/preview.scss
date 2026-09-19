@@ -1,0 +1,81 @@
+@use './styles/css-variables.scss';
+@use '@pastweb/tools/styles/document.scss';
+
+html,
+body {
+  background-color: var(--BODY_background-color);
+}
+
+:root.dark .docblock-source,
+:root.dark .docblock-source code {
+  color: var(--PRE_color) !important;
+}
+
+:root.dark .docblock-source,
+:root.dark .docblock-source pre,
+:root.dark .docblock-source code {
+  background-color: var(--PRE_background-color) !important;
+}
+
+:root.dark .docblock-source .token.comment,
+:root.dark .docblock-source .token.prolog,
+:root.dark .docblock-source .token.doctype,
+:root.dark .docblock-source .token.cdata {
+  color: hsl(220, 10%, 65%) !important;
+}
+
+:root.dark .docblock-source .token.keyword,
+:root.dark .docblock-source .token.atrule {
+  color: hsl(275, 75%, 76%) !important;
+}
+
+:root.dark .docblock-source .token.string,
+:root.dark .docblock-source .token.attr-value,
+:root.dark .docblock-source .token.char {
+  color: hsl(98, 45%, 70%) !important;
+}
+
+:root.dark .docblock-source .token.function,
+:root.dark .docblock-source .token.class-name {
+  color: hsl(210, 85%, 72%) !important;
+}
+
+:root.dark .docblock-source .token.number,
+:root.dark .docblock-source .token.boolean,
+:root.dark .docblock-source .token.constant {
+  color: hsl(18, 85%, 70%) !important;
+}
+
+:root.dark .docblock-source .token.property,
+:root.dark .docblock-source .token.tag,
+:root.dark .docblock-source .token.attr-name {
+  color: hsl(42, 90%, 72%) !important;
+}
+
+:root.dark .docblock-source .token.operator,
+:root.dark .docblock-source .token.punctuation {
+  color: hsl(185, 70%, 72%) !important;
+}
+
+.has-preview-padding {
+  .innerZoomElementWrapper {
+    margin: 10px;
+    height: 50px;
+  }
+
+  &.has-taller-preview .innerZoomElementWrapper {
+    height: 120px;
+  }
+
+  &.has-dropdown-preview {
+    overflow: visible;
+
+    .innerZoomElementWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 260px;
+      overflow: visible;
+    }
+  }
+}

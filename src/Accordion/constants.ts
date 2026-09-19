@@ -1,0 +1,6 @@
+export {
+  ACCORDION_CONTEXT_KEY,
+  DEFAULT_PROPS,
+  DEFAULT_ACCORDION_PANEL_PROPS,
+  DEFAULT_TRANSITION_DURATION,
+} from '@pastweb/components-core/Accordion';

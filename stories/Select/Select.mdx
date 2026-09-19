@@ -1,0 +1,102 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as SelectStories from './Select.stories';
+import * as SelectItemStories from './SelectItem.stories';
+import SelectComponent from './components/Select/Select.tsx?raw';
+import SelectComponentTypes from './components/Select/types.ts?raw';
+import SelectComponentIndex from './components/Select/index.ts?raw';
+import SelectItemComponent from './components/Select/SelectItem/SelectItem.tsx?raw';
+import SelectItemComponentTypes from './components/Select/SelectItem/types.ts?raw';
+import SelectItemComponentIndex from './components/Select/SelectItem/index.ts?raw';
+
+<Meta of={SelectStories} />
+
+# Select
+
+Select presents a labelled trigger and single-selection listbox for custom
+option content. The preview target uses a Button.
+
+## React usage
+
+```tsx
+import { Template } from '@pastweb/react';
+import { Select, SelectItem } from '@/react/components/Select';
+
+export function MyComponent() {
+  return (
+    <Select label='Country' placeholder='Choose a country'>
+      <Template name='content'>Choose a country</Template>
+      <Template name='options'>
+        <SelectItem value='gb'>United Kingdom</SelectItem>
+        <SelectItem value='fr'>France</SelectItem>
+      </Template>
+    </Select>
+  );
+}
+```
+
+## Select implementation
+
+<Tabs
+  defaultSelected='select-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'select-component',
+      title: 'Select.tsx',
+      children: <Source code={SelectComponent} language='tsx' />,
+    },
+    {
+      id: 'select-types',
+      title: 'types.ts',
+      children: <Source code={SelectComponentTypes} language='ts' />,
+    },
+    {
+      id: 'select-index',
+      title: 'index.ts',
+      children: <Source code={SelectComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Select Preview
+
+<Canvas
+  of={SelectStories.Select}
+  className='has-preview-padding has-dropdown-preview'
+  layout='fullscreen'
+/>
+<Controls of={SelectStories.Select} />
+
+## SelectItem implementation
+
+<Tabs
+  defaultSelected='select-item-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'select-item-component',
+      title: 'SelectItem.tsx',
+      children: <Source code={SelectItemComponent} language='tsx' />,
+    },
+    {
+      id: 'select-item-types',
+      title: 'types.ts',
+      children: <Source code={SelectItemComponentTypes} language='ts' />,
+    },
+    {
+      id: 'select-item-index',
+      title: 'index.ts',
+      children: <Source code={SelectItemComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## SelectItem Preview
+
+<Canvas
+  of={SelectItemStories.SelectItem}
+  className='has-preview-padding has-dropdown-preview'
+  layout='fullscreen'
+/>
+<Controls of={SelectItemStories.SelectItem} />

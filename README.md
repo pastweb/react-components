@@ -1,2 +1,2 @@
-# react-components-core
-react implementation for the components described in @pastweb/component-core
+# react-components
+react implementation for the components described in @pastweb/components-core

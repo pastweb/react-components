@@ -1,0 +1,63 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as DropDownStories from './DropDown.stories';
+import DropDownComponent from './components/DropDown/DropDown.tsx?raw';
+import DropDownComponentTypes from './components/DropDown/types.ts?raw';
+import DropDownComponentIndex from './components/DropDown/index.ts?raw';
+
+<Meta of={DropDownStories} />
+
+# DropDown
+
+DropDown reveals short contextual content or a collection of actions from a
+trigger. It exposes expanded, disabled, and ID relationship state to assistive
+technology.
+
+## React usage
+
+```tsx
+import { Template } from '@pastweb/react';
+import { DropDown } from '@/react/components/DropDown';
+
+export function MyComponent() {
+  return (
+    <DropDown ariaLabel='More actions'>
+      <Template name='target'>More actions</Template>
+      <Template name='content'>Additional actions appear here.</Template>
+    </DropDown>
+  );
+}
+```
+
+## DropDown implementation
+
+<Tabs
+  defaultSelected='dropdown-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'dropdown-component',
+      title: 'DropDown.tsx',
+      children: <Source code={DropDownComponent} language='tsx' />,
+    },
+    {
+      id: 'dropdown-types',
+      title: 'types.ts',
+      children: <Source code={DropDownComponentTypes} language='ts' />,
+    },
+    {
+      id: 'dropdown-index',
+      title: 'index.ts',
+      children: <Source code={DropDownComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## DropDown Preview
+
+<Canvas
+  of={DropDownStories.DropDown}
+  className='has-preview-padding has-dropdown-preview'
+  layout='fullscreen'
+/>
+<Controls of={DropDownStories.DropDown} />

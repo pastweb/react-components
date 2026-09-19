@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@pastweb/react-components": ["./src/index.ts"],
+      "@pastweb/react-components/*": ["./src/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}

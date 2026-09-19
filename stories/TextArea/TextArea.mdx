@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as TextAreaStories from './TextArea.stories';
+import TextAreaComponent from './components/TextArea/TextArea.tsx?raw';
+import TextAreaComponentTypes from './components/TextArea/types.ts?raw';
+import TextAreaComponentIndex from './components/TextArea/index.ts?raw';
+
+<Meta of={TextAreaStories} />
+
+# TextArea
+
+TextArea is a labelled multiline text control with disabled, read-only, and
+loading states.
+
+## React usage
+
+```tsx
+import { TextArea } from '@/react/components/TextArea';
+
+export function MyComponent() {
+  return <TextArea label='Feedback' />;
+}
+```
+
+## TextArea implementation
+
+<Tabs
+  defaultSelected='textarea-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'textarea-component',
+      title: 'TextArea.tsx',
+      children: <Source code={TextAreaComponent} language='tsx' />,
+    },
+    {
+      id: 'textarea-types',
+      title: 'types.ts',
+      children: <Source code={TextAreaComponentTypes} language='ts' />,
+    },
+    {
+      id: 'textarea-index',
+      title: 'index.ts',
+      children: <Source code={TextAreaComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## TextArea Preview
+
+<Canvas
+  of={TextAreaStories.TextArea}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={TextAreaStories.TextArea} />

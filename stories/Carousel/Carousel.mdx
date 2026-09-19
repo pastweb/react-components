@@ -1,0 +1,118 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as CarouselStories from './Carousel.stories';
+import * as CarouselItemStories from './CarouselItem.stories';
+import CarouselComponent from './components/Carousel/Carousel.tsx?raw';
+import CarouselComponentTypes from './components/Carousel/types.ts?raw';
+import CarouselComponentIndex from './components/Carousel/index.ts?raw';
+import CarouselCommandsExample from './components/Carousel/CarouselCommands.tsx?raw';
+import CarouselItemComponent from './components/Carousel/CarouselItem/CarouselItem.tsx?raw';
+import CarouselItemComponentTypes from './components/Carousel/CarouselItem/types.ts?raw';
+import CarouselItemComponentIndex from './components/Carousel/CarouselItem/index.ts?raw';
+
+<Meta of={CarouselStories} />
+
+# Carousel
+
+Carousel presents a sequence of labelled slides with previous and next
+controls. Optional autoplay can be paused and resumed by the user.
+
+## React usage
+
+```tsx
+import { Carousel, CarouselItem } from '@/react/components/Carousel';
+
+export function MyComponent() {
+  return (
+    <Carousel ariaLabel='Featured articles'>
+      <CarouselItem>First article</CarouselItem>
+      <CarouselItem>Second article</CarouselItem>
+    </Carousel>
+  );
+}
+```
+
+## Carousel implementation
+
+<Tabs
+  defaultSelected='carousel-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'carousel-component',
+      title: 'Carousel.tsx',
+      children: <Source code={CarouselComponent} language='tsx' />,
+    },
+    {
+      id: 'carousel-types',
+      title: 'types.ts',
+      children: <Source code={CarouselComponentTypes} language='ts' />,
+    },
+    {
+      id: 'carousel-index',
+      title: 'index.ts',
+      children: <Source code={CarouselComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Carousel Preview
+
+<Canvas of={CarouselStories.Carousel} />
+<Controls of={CarouselStories.Carousel} />
+
+## `useCarouselContext`
+
+`useCarouselContext(): CarouselContext` gives custom descendants access to the
+nearest Carousel's live state and command methods. Call it only from a component
+rendered inside `Carousel`, including content supplied to the `commands` slot.
+
+The context provides these live values:
+
+- `current`: the zero-based active slide index;
+- `itemsCount`: the number of registered CarouselItem components;
+- `isDisabled`: `true` when Carousel commands are unavailable; and
+- `isPaused`: `true` while autoplay is paused for any reason.
+
+It also provides these methods:
+
+- `prev()` and `next()` navigate between slides;
+- `toggleAutoplay()` switches the user-controlled autoplay pause state; and
+- `registerItem()` registers a compatible slide implementation. Ordinary
+  custom commands do not need to call it because CarouselItem registers itself.
+
+### Custom commands example
+
+Use the hook inside a custom commands component, then supply that component to
+the named slot of a Carousel configured with `autoPlay`.
+
+<Source code={CarouselCommandsExample} language='tsx' />
+
+## CarouselItem implementation
+
+<Tabs
+  defaultSelected='carousel-item-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'carousel-item-component',
+      title: 'CarouselItem.tsx',
+      children: <Source code={CarouselItemComponent} language='tsx' />,
+    },
+    {
+      id: 'carousel-item-types',
+      title: 'types.ts',
+      children: <Source code={CarouselItemComponentTypes} language='ts' />,
+    },
+    {
+      id: 'carousel-item-index',
+      title: 'index.ts',
+      children: <Source code={CarouselItemComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## CarouselItem Preview
+
+<Canvas of={CarouselItemStories.CarouselItem} />
+<Controls of={CarouselItemStories.CarouselItem} />

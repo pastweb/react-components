@@ -1,0 +1,62 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as ButtonsStories from './Buttons.stories';
+import ButtonsComponent from './components/Buttons/Buttons.tsx?raw';
+import ButtonsComponentTypes from './components/Buttons/types.ts?raw';
+import ButtonsComponentIndex from './components/Buttons/index.ts?raw';
+
+<Meta of={ButtonsStories} />
+
+# Buttons
+
+Buttons groups related actions under one accessible label. Use it when a set of
+Button components belongs to the same operation or decision.
+
+## React usage
+
+```tsx
+import { Button } from '@/react/components/Button';
+import { Buttons } from '@/react/components/Buttons';
+
+export function MyComponent() {
+  return (
+    <Buttons ariaLabel='Account actions'>
+      <Button>Save changes</Button>
+      <Button outlined>Cancel</Button>
+    </Buttons>
+  );
+}
+```
+
+## Buttons implementation
+
+<Tabs
+  defaultSelected='buttons-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'buttons-component',
+      title: 'Buttons.tsx',
+      children: <Source code={ButtonsComponent} language='tsx' />,
+    },
+    {
+      id: 'buttons-types',
+      title: 'types.ts',
+      children: <Source code={ButtonsComponentTypes} language='ts' />,
+    },
+    {
+      id: 'buttons-index',
+      title: 'index.ts',
+      children: <Source code={ButtonsComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Buttons Preview
+
+<Canvas
+  of={ButtonsStories.Buttons}
+  className='has-preview-padding'
+  layout='fullscreen'
+/>
+<Controls of={ButtonsStories.Buttons} />

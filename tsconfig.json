@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "lib": ["es2023", "DOM"],
+    "jsx": "react-jsx",
+    "moduleDetection": "force",
+    "module": "preserve",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "types": ["vitest/globals", "node", "react", "react-dom"],
+    "strict": true,
+    "noUnusedLocals": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@pastweb/components-core": ["../components-core/src/index.ts"],
+      "@pastweb/components-core/*": ["../components-core/src/*"],
+      "@pastweb/react-components": ["./src/index.ts"],
+      "@pastweb/react-components/*": ["./src/*"],
+      "@/styles": ["./.storybook/styles/index.ts"]
+    }
+  },
+  "include": ["src/**/*", "tests/**/*", ".storybook/**/*", "stories/**/*", "vitest.config.ts", "tsdown.config.ts"],
+  "exclude": ["node_modules", "dist"]
+}

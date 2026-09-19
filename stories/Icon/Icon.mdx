@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as IconStories from './Icon.stories';
+import IconComponent from './components/Icon/Icon.tsx?raw';
+import IconComponentTypes from './components/Icon/types.ts?raw';
+import IconComponentIndex from './components/Icon/index.ts?raw';
+
+<Meta of={IconStories} />
+
+# Icon
+
+Icon renders an inline SVG or image URL from a direct source, local collection,
+or Iconify-compatible API. Icons are decorative by default.
+
+## React usage
+
+```tsx
+import { Icon } from '@/react/components/Icon';
+
+export function MyComponent() {
+  return <Icon name='check' collection='actions' ariaLabel='Complete' />;
+}
+```
+
+## Icon implementation
+
+<Tabs
+  defaultSelected='icon-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'icon-component',
+      title: 'Icon.tsx',
+      children: <Source code={IconComponent} language='tsx' />,
+    },
+    {
+      id: 'icon-types',
+      title: 'types.ts',
+      children: <Source code={IconComponentTypes} language='ts' />,
+    },
+    {
+      id: 'icon-index',
+      title: 'index.ts',
+      children: <Source code={IconComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Icon Preview
+
+<Canvas
+  of={IconStories.Icon}
+  className='has-preview-padding'
+  layout='fullscreen'
+/>
+<Controls of={IconStories.Icon} />

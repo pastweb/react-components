@@ -1,0 +1,88 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as SplitLayoutStories from './SplitLayout.stories';
+import SplitLayoutComponent from './components/SplitLayout/SplitLayout.tsx?raw';
+import SplitLayoutComponentTypes from './components/SplitLayout/types.ts?raw';
+import SplitLayoutComponentIndex from './components/SplitLayout/index.ts?raw';
+import SplitLayoutItemComponent from './components/SplitLayout/SplitLayoutItem/SplitLayoutItem.tsx?raw';
+import SplitLayoutItemComponentTypes from './components/SplitLayout/SplitLayoutItem/types.ts?raw';
+import SplitLayoutItemComponentIndex from './components/SplitLayout/SplitLayoutItem/index.ts?raw';
+
+<Meta of={SplitLayoutStories} />
+
+# SplitLayout
+
+SplitLayout arranges resizable panels separated by pointer- and keyboard-operable
+controls.
+
+## React usage
+
+```tsx
+import { SplitLayout, SplitLayoutItem } from '@/react/components/SplitLayout';
+
+export function MyComponent() {
+  return (
+    <SplitLayout ariaLabel='Workspace panels'>
+      <SplitLayoutItem>Navigation</SplitLayoutItem>
+      <SplitLayoutItem>Content</SplitLayoutItem>
+    </SplitLayout>
+  );
+}
+```
+
+## SplitLayout implementation
+
+<Tabs
+  defaultSelected='splitlayout-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'splitlayout-component',
+      title: 'SplitLayout.tsx',
+      children: <Source code={SplitLayoutComponent} language='tsx' />,
+    },
+    {
+      id: 'splitlayout-types',
+      title: 'types.ts',
+      children: <Source code={SplitLayoutComponentTypes} language='ts' />,
+    },
+    {
+      id: 'splitlayout-index',
+      title: 'index.ts',
+      children: <Source code={SplitLayoutComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## SplitLayout Preview
+
+<Canvas
+  of={SplitLayoutStories.SplitLayout}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={SplitLayoutStories.SplitLayout} />
+
+## SplitLayoutItem implementation
+
+<Tabs
+  defaultSelected='splitlayout-item-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'splitlayout-item-component',
+      title: 'SplitLayoutItem.tsx',
+      children: <Source code={SplitLayoutItemComponent} language='tsx' />,
+    },
+    {
+      id: 'splitlayout-item-types',
+      title: 'types.ts',
+      children: <Source code={SplitLayoutItemComponentTypes} language='ts' />,
+    },
+    {
+      id: 'splitlayout-item-index',
+      title: 'index.ts',
+      children: <Source code={SplitLayoutItemComponentIndex} language='ts' />,
+    },
+  ]}
+/>

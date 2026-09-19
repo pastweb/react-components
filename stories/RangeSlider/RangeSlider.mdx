@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as RangeSliderStories from './RangeSlider.stories';
+import RangeSliderComponent from './components/RangeSlider/RangeSlider.tsx?raw';
+import RangeSliderComponentTypes from './components/RangeSlider/types.ts?raw';
+import RangeSliderComponentIndex from './components/RangeSlider/index.ts?raw';
+
+<Meta of={RangeSliderStories} />
+
+# RangeSlider
+
+RangeSlider selects one numeric value from a bounded range using the native
+range control.
+
+## React usage
+
+```tsx
+import { RangeSlider } from '@/react/components/RangeSlider';
+
+export function MyComponent() {
+  return <RangeSlider label='Volume' min={0} max={100} value={50} />;
+}
+```
+
+## RangeSlider implementation
+
+<Tabs
+  defaultSelected='rangeslider-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'rangeslider-component',
+      title: 'RangeSlider.tsx',
+      children: <Source code={RangeSliderComponent} language='tsx' />,
+    },
+    {
+      id: 'rangeslider-types',
+      title: 'types.ts',
+      children: <Source code={RangeSliderComponentTypes} language='ts' />,
+    },
+    {
+      id: 'rangeslider-index',
+      title: 'index.ts',
+      children: <Source code={RangeSliderComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## RangeSlider Preview
+
+<Canvas
+  of={RangeSliderStories.RangeSlider}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={RangeSliderStories.RangeSlider} />

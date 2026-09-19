@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as ButtonStories from './Button.stories';
+import ButtonComponent from './components/Button/Button.tsx?raw';
+import ButtonComponentTypes from './components/Button/types.ts?raw';
+import ButtonComponentIndex from './components/Button/index.ts?raw';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Button renders a native button with loading and disabled states. It preserves
+native button semantics and exposes its state to assistive technology.
+
+## React usage
+
+```tsx
+import { Button } from '@/react/components/Button';
+
+export function MyComponent() {
+  return <Button>Save changes</Button>;
+}
+```
+
+## Button implementation
+
+<Tabs
+  defaultSelected='button-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'button-component',
+      title: 'Button.tsx',
+      children: <Source code={ButtonComponent} language='tsx' />,
+    },
+    {
+      id: 'button-types',
+      title: 'types.ts',
+      children: <Source code={ButtonComponentTypes} language='ts' />,
+    },
+    {
+      id: 'button-index',
+      title: 'index.ts',
+      children: <Source code={ButtonComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Button Preview
+
+<Canvas
+  of={ButtonStories.Button}
+  className='has-preview-padding'
+  layout='fullscreen'
+/>
+<Controls of={ButtonStories.Button} />

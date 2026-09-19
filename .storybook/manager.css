@@ -1,0 +1,44 @@
+:root {
+  --white_color: #fff;
+  --primary_color: #61dafb;
+  --secondary_color: #087ea4;
+  --pastweb_border_logo: var(--primary_color);
+  --pastweb_p_logo: var(--primary_color);
+  --pastweb_w_logo: var(--primary_color);
+}
+
+:root.light {
+  --pastweb_border_logo: var(--secondary_color);
+  --pastweb_p_logo: var(--secondary_color);
+  --pastweb_w_logo: var(--secondary_color);
+}
+
+:root.dark {
+  --pastweb_border_logo: var(--primary_color);
+  --pastweb_p_logo: var(--primary_color);
+  --pastweb_w_logo: var(--primary_color);
+}
+
+.pastweb-logo {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  line-height: 0;
+}
+
+.pastweb-logo svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.pastweb-brand-name {
+  margin-left: 8px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.sidebar-header button[aria-label='Settings'],
+button[aria-label='Create a new story'] {
+  display: none;
+}

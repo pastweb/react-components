@@ -1,0 +1,124 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as TabsStories from './Tabs.stories';
+import * as TabStories from './Tab.stories';
+import TabsComponent from './components/Tabs/Tabs.tsx?raw';
+import TabsComponentIndex from './components/Tabs/index.ts?raw';
+import TabsComponentTypes from './components/Tabs/types.ts?raw';
+import TabComponent from './components/Tabs/Tab/Tab.tsx?raw';
+import TabComponentIndex from './components/Tabs/Tab/index.ts?raw';
+import TabComponentTypes from './components/Tabs/Tab/types.ts?raw';
+
+<Meta of={TabsStories} />
+
+# Tabs
+
+Tabs presents related sections while keeping one panel visible. The React
+renderer implements the shared `@pastweb/components-core/Tabs` selection,
+keyboard-navigation, ID, and accessibility contract.
+
+## React usage
+
+```tsx
+import { Template } from '@pastweb/react';
+import { Tab, Tabs } from '@/react/components/Tabs';
+
+export function MyComponent() {
+  return (
+    <Tabs ariaLabel='Account settings'>
+      <Template name='tabs'>
+        <Tab>Profile</Tab>
+        <Tab>Security</Tab>
+      </Template>
+      <Template name='content'>
+        <section>Profile settings</section>
+        <section>Security settings</section>
+      </Template>
+    </Tabs>
+  );
+}
+```
+
+The `tabs` and `content` templates must contain the same number of children in
+the same order. `Tabs` owns the tab-list and panel wrappers; use `Tab` only in
+the `tabs` template and supply panel content directly in `content`.
+
+## React adapter API
+
+| Surface | React behavior |
+|---|---|
+| `Tabs` ref | Forwards to the root `div` containing the tab list and generated panels. |
+| `Tab` ref | Forwards to the semantic `li` that contains the native tab button. |
+| `Template name="tabs"` | Supplies ordered `Tab` children inside the renderer-owned `ul[role="tablist"]`. |
+| `Template name="content"` | Supplies matching panel content. The renderer creates the `tabpanel` containers, IDs, `hidden` state, and `aria-labelledby` relationship. |
+| Context | `Tabs` publishes the core Tabs context for `Tab` descendants. Consumers normally compose with `Tab` rather than reading the context directly. |
+
+## Tabs Preview
+
+<Canvas of={TabsStories.Tabs} />
+<Controls of={TabsStories.Tabs} />
+
+## Accessibility in React
+
+- Each `Tab` uses a native button with `role="tab"`, roving `tabIndex`,
+  `aria-selected`, and `aria-controls` from the shared mediator.
+- `Tabs` renders a named `ul[role="tablist"]` and creates matching
+  `div[role="tabpanel"]` wrappers for `content` children.
+- Inactive panels use `hidden`, so their content leaves the accessibility tree
+  and sequential focus order.
+- Arrow keys navigate enabled tabs according to orientation; Home and End move
+  to the first and last enabled tabs.
+- Do not place a nested button or another tab list inside a `Tab` label.
+
+## Tabs implementation
+
+<Tabs
+  defaultSelected='tabs-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'tabs-component',
+      title: 'Tabs.tsx',
+      children: <Source code={TabsComponent} language='tsx' />,
+    },
+    {
+      id: 'tabs-types',
+      title: 'types.ts',
+      children: <Source code={TabsComponentTypes} language='ts' />,
+    },
+    {
+      id: 'tabs-index',
+      title: 'index.ts',
+      children: <Source code={TabsComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Tab implementation
+
+<Tabs
+  defaultSelected='tab-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'tab-component',
+      title: 'Tab.tsx',
+      children: <Source code={TabComponent} language='tsx' />,
+    },
+    {
+      id: 'tab-types',
+      title: 'types.ts',
+      children: <Source code={TabComponentTypes} language='ts' />,
+    },
+    {
+      id: 'tab-index',
+      title: 'index.ts',
+      children: <Source code={TabComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Tab Preview
+
+<Canvas of={TabStories.Tab} />
+<Controls of={TabStories.Tab} />

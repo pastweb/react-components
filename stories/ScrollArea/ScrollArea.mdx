@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as ScrollAreaStories from './ScrollArea.stories';
+import ScrollAreaComponent from './components/ScrollArea/ScrollArea.tsx?raw';
+import ScrollAreaComponentTypes from './components/ScrollArea/types.ts?raw';
+import ScrollAreaComponentIndex from './components/ScrollArea/index.ts?raw';
+
+<Meta of={ScrollAreaStories} />
+
+# ScrollArea
+
+ScrollArea provides a named, keyboard-focusable viewport for overflowing
+content.
+
+## React usage
+
+```tsx
+import { ScrollArea } from '@/react/components/ScrollArea';
+
+export function MyComponent() {
+  return <ScrollArea ariaLabel='Activity log'>Recent account activity</ScrollArea>;
+}
+```
+
+## ScrollArea implementation
+
+<Tabs
+  defaultSelected='scrollarea-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'scrollarea-component',
+      title: 'ScrollArea.tsx',
+      children: <Source code={ScrollAreaComponent} language='tsx' />,
+    },
+    {
+      id: 'scrollarea-types',
+      title: 'types.ts',
+      children: <Source code={ScrollAreaComponentTypes} language='ts' />,
+    },
+    {
+      id: 'scrollarea-index',
+      title: 'index.ts',
+      children: <Source code={ScrollAreaComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## ScrollArea Preview
+
+<Canvas
+  of={ScrollAreaStories.ScrollArea}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={ScrollAreaStories.ScrollArea} />

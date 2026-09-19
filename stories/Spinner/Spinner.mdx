@@ -1,0 +1,55 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as SpinnerStories from './Spinner.stories';
+import SpinnerComponent from './components/Spinner/Spinner.tsx?raw';
+import SpinnerComponentTypes from './components/Spinner/types.ts?raw';
+import SpinnerComponentIndex from './components/Spinner/index.ts?raw';
+
+<Meta of={SpinnerStories} />
+
+# Spinner
+
+Spinner displays a rotating visual indicator and exposes a polite loading status.
+
+## React usage
+
+```tsx
+import { Spinner } from '@/react/components/Spinner';
+
+export function MyComponent() {
+  return <Spinner ariaLabel='Loading account details' />;
+}
+```
+
+## Spinner implementation
+
+<Tabs
+  defaultSelected='spinner-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'spinner-component',
+      title: 'Spinner.tsx',
+      children: <Source code={SpinnerComponent} language='tsx' />,
+    },
+    {
+      id: 'spinner-types',
+      title: 'types.ts',
+      children: <Source code={SpinnerComponentTypes} language='ts' />,
+    },
+    {
+      id: 'spinner-index',
+      title: 'index.ts',
+      children: <Source code={SpinnerComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Spinner Preview
+
+<Canvas
+  of={SpinnerStories.Spinner}
+  className='has-preview-padding'
+  layout='fullscreen'
+/>
+<Controls of={SpinnerStories.Spinner} />

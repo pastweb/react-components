@@ -1,0 +1,83 @@
+@forward '@pastweb/tools/styles/css-variables.scss';
+@forward '@pastweb/components-core/styles/css-variables.scss';
+@use './variables' as *;
+
+:root {
+  --white_color : #{ $white_color };
+
+  --grey_color: #{ $grey_color };
+  --grey-light_color: #{ $grey-light_color };
+
+  --black_color: #{ $black_color };
+
+  --primary_color: #{ $primary_color };
+  --primary-light_color: #{ $primary-light_color };
+
+  --secondary_color: #{ $secondary_color };
+  --secondary-light_color: #{ $secondary-light_color };
+
+  --link_color: #{ $link_color };
+
+  --info_color: #{ $info_color };
+  --info-light_color: #{ $info-light_color };
+
+  --success_color: #{ $success_color };
+  --success-light_color: #{ $success-light_color };
+
+  --warning_color: #{ $warning_color };
+  --warning-light_color: #{ $warning-light_color };
+
+  --danger_color: #{ $danger_color };
+  --danger-light_color: #{ $danger-light_color };
+
+  --text_hover_color: var(--pw_background-color);
+}
+
+// @media (prefers-color-scheme: dark) {
+:root.light {
+  --pw_text_strong-color: var(--text_strong_color);
+
+  --pastweb_border_logo: var(--white_color);
+  --pastweb_p_logo: var(--white_color);
+  --pastweb_w_logo: var(--white_color);
+}
+
+// @media (prefers-color-scheme: dark) {
+:root.dark {
+  // Colors
+  --background-color: hsl(0, 0%, 15%);
+  --pw_background-color: var(--background-color);
+  --text_color: hsl(0, 0%, 80%);
+  --text_hover_color: var(--primary_color);
+  --pw_text_color: var(--text_color);
+  --text_strong_color: hsl(0, 0%, 95%);
+  --pw_text_strong_color: var(--text_strong_color);
+  --pw_label_text_color: var(--pw_text_strong_color);
+
+  --pastweb_border_logo: var(--primary_color);
+  --pastweb_p_logo: var(--primary_color);
+  --pastweb_w_logo: var(--primary_color);
+
+  // Control
+  --control_background-color: hsl(0, 0%, 24%);
+  --pw_control_background-color: var(--control_background-color);
+
+  // Elements
+  --BODY_background-color: hsl(0, 0%, 15%);
+  --BODY_color: hsl(0, 0%, 80%);
+
+  --CODE_background-color: hsl(0, 0%, 20%);
+  --CODE_color: hsl(348, 86%, 61%);
+
+  --LINK_color: hsl(229, 70%, 70%);
+  --LINK_hover_color: hsl(229, 80%, 85%);
+
+  --HR_background-color: hsl(0, 0%, 25%);
+
+  --STRONG_color: hsl(0, 0%, 95%);
+
+  --PRE_color: hsl(0, 0%, 80%);
+  --PRE_background-color: hsl(0, 0%, 20%);
+}
+
+// }

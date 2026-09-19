@@ -1,0 +1,64 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as RadioStories from './Radio.stories';
+import RadioComponent from './components/Radio/Radio.tsx?raw';
+import RadioComponentTypes from './components/Radio/types.ts?raw';
+import RadioComponentIndex from './components/Radio/index.ts?raw';
+
+<Meta of={RadioStories} />
+
+# Radio
+
+Radio presents a labelled group in which exactly one enabled option can be
+selected.
+
+## React usage
+
+```tsx
+import { Radio } from '@/react/components/Radio';
+
+export function MyComponent() {
+  return (
+    <Radio
+      label='Contact preference'
+      options={[
+        { label: 'Email', value: 'email' },
+        { label: 'Phone', value: 'phone' },
+      ]}
+    />
+  );
+}
+```
+
+## Radio implementation
+
+<Tabs
+  defaultSelected='radio-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'radio-component',
+      title: 'Radio.tsx',
+      children: <Source code={RadioComponent} language='tsx' />,
+    },
+    {
+      id: 'radio-types',
+      title: 'types.ts',
+      children: <Source code={RadioComponentTypes} language='ts' />,
+    },
+    {
+      id: 'radio-index',
+      title: 'index.ts',
+      children: <Source code={RadioComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Radio Preview
+
+<Canvas
+  of={RadioStories.Radio}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={RadioStories.Radio} />

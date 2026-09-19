@@ -1,0 +1,124 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as AccordionStories from './Accordion.stories';
+import * as AccordionPanelStories from './AccordionPanel.stories';
+import AccordionComponent from './components/Accordion/Accordion.tsx?raw';
+import AccordionComponentTypes from './components/Accordion/types.ts?raw';
+import AccordionComponentIndex from './components/Accordion/index.ts?raw';
+import AccordionPanelComponent from './components/Accordion/AccordionPanel/AccordionPanel.tsx?raw';
+import AccordionPanelComponentTypes from './components/Accordion/AccordionPanel/types.ts?raw';
+import AccordionPanelComponentIndex from './components/Accordion/AccordionPanel/index.ts?raw';
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+Accordion renders related sections that users can expand independently. The
+React renderer implements the shared `@pastweb/components-core/Accordion`
+semantic and accessibility contract.
+
+## React usage
+
+```tsx
+import { Accordion, AccordionPanel } from '@/react/components/Accordion';
+
+export function MyComponent() {
+  return (
+    <Accordion ariaLabel='Account help'>
+      <AccordionPanel title='Change my password'>
+        <p>Use the account settings page to change your password.</p>
+      </AccordionPanel>
+      <AccordionPanel title='Enable two-factor authentication'>
+        <p>Choose an authenticator app from the account security settings.</p>
+      </AccordionPanel>
+    </Accordion>
+  );
+}
+```
+
+Use `transitionDuration` on `Accordion` to set the default panel animation in
+milliseconds. Set it on an individual `AccordionPanel` only when that panel
+needs a different duration. The shared core contract owns the public props,
+mediator state, IDs, CSS variables, keyboard behavior, and native-renderer
+mapping.
+
+## React adapter API
+
+| Surface | React behavior |
+|---|---|
+| `Accordion` ref | Forwards to the root `div` that contains the complete accordion. |
+| `AccordionPanel` ref | Forwards to the semantic `section` for that panel. |
+| `children` | `Accordion` receives `AccordionPanel` children in document order. Each panel receives its expandable content as children. |
+| `Template name="header"` | Replaces content inside a panel's native trigger button. The heading, button, IDs, ARIA relationships, and keyboard behavior remain renderer-owned. |
+| Context | `Accordion` publishes the core Accordion context for its `AccordionPanel` descendants. Consumers normally compose with `AccordionPanel` rather than reading it directly. |
+
+## Accordion Preview
+
+<Canvas of={AccordionStories.Accordion} />
+<Controls of={AccordionStories.Accordion} />
+
+## Accessibility in React
+
+- Each panel title is rendered inside a native button within the configured
+  heading level.
+- The trigger uses `aria-expanded` and `aria-controls`; content uses
+  `aria-labelledby` to retain the relationship exposed by the core mediator.
+- A closed panel is `inert` and hidden from the accessibility tree, so its
+  interactive descendants cannot receive keyboard focus.
+- The optional `landmark` prop adds `role="region"` to panel content. Use it
+  only when the content needs a navigable landmark.
+- Custom header content belongs inside `Template name="header"` and must still
+  provide a meaningful trigger name. Do not render another button in that slot.
+
+## Accordion implementation
+
+<Tabs
+  defaultSelected='accordion-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'accordion-component',
+      title: 'Accordion.tsx',
+      children: <Source code={AccordionComponent} language='tsx' />,
+    },
+    {
+      id: 'accordion-types',
+      title: 'types.ts',
+      children: <Source code={AccordionComponentTypes} language='ts' />,
+    },
+    {
+      id: 'accordion-index',
+      title: 'index.ts',
+      children: <Source code={AccordionComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## AccordionPanel implementation
+
+<Tabs
+  defaultSelected='accordion-panel-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'accordion-panel-component',
+      title: 'AccordionPanel.tsx',
+      children: <Source code={AccordionPanelComponent} language='tsx' />,
+    },
+    {
+      id: 'accordion-panel-types',
+      title: 'types.ts',
+      children: <Source code={AccordionPanelComponentTypes} language='ts' />,
+    },
+    {
+      id: 'accordion-panel-index',
+      title: 'index.ts',
+      children: <Source code={AccordionPanelComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## AccordionPanel Preview
+
+<Canvas of={AccordionPanelStories.AccordionPanel} />
+<Controls of={AccordionPanelStories.AccordionPanel} />

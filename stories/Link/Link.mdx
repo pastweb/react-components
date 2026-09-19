@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as LinkStories from './Link.stories';
+import LinkComponent from './components/Link/Link.tsx?raw';
+import LinkComponentTypes from './components/Link/types.ts?raw';
+import LinkComponentIndex from './components/Link/index.ts?raw';
+
+<Meta of={LinkStories} />
+
+# Link
+
+Link renders a native anchor for navigation and prevents unavailable links from
+remaining actionable or focusable.
+
+## React usage
+
+```tsx
+import { Link } from '@/react/components/Link';
+
+export function MyComponent() {
+  return <Link href='/account'>Account settings</Link>;
+}
+```
+
+## Link implementation
+
+<Tabs
+  defaultSelected='link-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'link-component',
+      title: 'Link.tsx',
+      children: <Source code={LinkComponent} language='tsx' />,
+    },
+    {
+      id: 'link-types',
+      title: 'types.ts',
+      children: <Source code={LinkComponentTypes} language='ts' />,
+    },
+    {
+      id: 'link-index',
+      title: 'index.ts',
+      children: <Source code={LinkComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Link Preview
+
+<Canvas
+  of={LinkStories.Link}
+  className='has-preview-padding'
+  layout='fullscreen'
+/>
+<Controls of={LinkStories.Link} />

@@ -1,0 +1,57 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as CheckboxStories from './Checkbox.stories';
+import CheckboxComponent from './components/Checkbox/Checkbox.tsx?raw';
+import CheckboxComponentTypes from './components/Checkbox/types.ts?raw';
+import CheckboxComponentIndex from './components/Checkbox/index.ts?raw';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+Checkbox renders a native binary choice with a visible label or explicit
+accessible name. It preserves native checkbox semantics and exposes its state
+to assistive technology.
+
+## React usage
+
+```tsx
+import { Checkbox } from '@/react/components/Checkbox';
+
+export function MyComponent() {
+  return <Checkbox label='Receive product updates' />;
+}
+```
+
+## Checkbox implementation
+
+<Tabs
+  defaultSelected='checkbox-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'checkbox-component',
+      title: 'Checkbox.tsx',
+      children: <Source code={CheckboxComponent} language='tsx' />,
+    },
+    {
+      id: 'checkbox-types',
+      title: 'types.ts',
+      children: <Source code={CheckboxComponentTypes} language='ts' />,
+    },
+    {
+      id: 'checkbox-index',
+      title: 'index.ts',
+      children: <Source code={CheckboxComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Checkbox Preview
+
+<Canvas
+  of={CheckboxStories.Checkbox}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={CheckboxStories.Checkbox} />

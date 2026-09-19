@@ -1,0 +1,63 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as StepperStories from './Stepper.stories';
+import StepperComponent from './components/Stepper/Stepper.tsx?raw';
+import StepperComponentTypes from './components/Stepper/types.ts?raw';
+import StepperComponentIndex from './components/Stepper/index.ts?raw';
+
+<Meta of={StepperStories} />
+
+# Stepper
+
+Stepper communicates progress through an ordered sequence of stages.
+
+## React usage
+
+```tsx
+import { Stepper } from '@/react/components/Stepper';
+
+export function MyComponent() {
+  return (
+    <Stepper
+      steps={[
+        { label: 'Account' },
+        { label: 'Confirmation' },
+        { label: 'Complete' },
+      ]}
+    />
+  );
+}
+```
+
+## Stepper implementation
+
+<Tabs
+  defaultSelected='stepper-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'stepper-component',
+      title: 'Stepper.tsx',
+      children: <Source code={StepperComponent} language='tsx' />,
+    },
+    {
+      id: 'stepper-types',
+      title: 'types.ts',
+      children: <Source code={StepperComponentTypes} language='ts' />,
+    },
+    {
+      id: 'stepper-index',
+      title: 'index.ts',
+      children: <Source code={StepperComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Stepper Preview
+
+<Canvas
+  of={StepperStories.Stepper}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={StepperStories.Stepper} />

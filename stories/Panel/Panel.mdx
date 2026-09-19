@@ -1,0 +1,56 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as PanelStories from './Panel.stories';
+import PanelComponent from './components/Panel/Panel.tsx?raw';
+import PanelComponentTypes from './components/Panel/types.ts?raw';
+import PanelComponentIndex from './components/Panel/index.ts?raw';
+
+<Meta of={PanelStories} />
+
+# Panel
+
+Panel groups related content in a bordered, optionally rounded article with a
+semantic heading, close action, and footer.
+
+## React usage
+
+```tsx
+import { Panel } from '@/react/components/Panel';
+
+export function MyComponent() {
+  return <Panel title='Account settings'>Update your profile details.</Panel>;
+}
+```
+
+## Panel implementation
+
+<Tabs
+  defaultSelected='panel-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'panel-component',
+      title: 'Panel.tsx',
+      children: <Source code={PanelComponent} language='tsx' />,
+    },
+    {
+      id: 'panel-types',
+      title: 'types.ts',
+      children: <Source code={PanelComponentTypes} language='ts' />,
+    },
+    {
+      id: 'panel-index',
+      title: 'index.ts',
+      children: <Source code={PanelComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Panel Preview
+
+<Canvas
+  of={PanelStories.Panel}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={PanelStories.Panel} />

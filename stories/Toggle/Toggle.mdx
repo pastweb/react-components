@@ -1,0 +1,55 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as ToggleStories from './Toggle.stories';
+import ToggleComponent from './components/Toggle/Toggle.tsx?raw';
+import ToggleComponentTypes from './components/Toggle/types.ts?raw';
+import ToggleComponentIndex from './components/Toggle/index.ts?raw';
+
+<Meta of={ToggleStories} />
+
+# Toggle
+
+Toggle represents an immediate binary setting using a native switch.
+
+## React usage
+
+```tsx
+import { Toggle } from '@/react/components/Toggle';
+
+export function MyComponent() {
+  return <Toggle label='Enable notifications' />;
+}
+```
+
+## Toggle implementation
+
+<Tabs
+  defaultSelected='toggle-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'toggle-component',
+      title: 'Toggle.tsx',
+      children: <Source code={ToggleComponent} language='tsx' />,
+    },
+    {
+      id: 'toggle-types',
+      title: 'types.ts',
+      children: <Source code={ToggleComponentTypes} language='ts' />,
+    },
+    {
+      id: 'toggle-index',
+      title: 'index.ts',
+      children: <Source code={ToggleComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## Toggle Preview
+
+<Canvas
+  of={ToggleStories.Toggle}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={ToggleStories.Toggle} />
