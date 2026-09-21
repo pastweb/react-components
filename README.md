@@ -1,7 +1,7 @@
 # @pastweb/react-components
 
 `@pastweb/react-components` is the React rendering package for the shared
-component contracts in [`@pastweb/components-core`](https://www.npmjs.com/package/@pastweb/components-core).
+component contracts in [`@pastweb/components-core`](https://github.com/pastweb/components-core).
 It turns the framework-neutral mediators, accessibility rules, public types,
 and XJS/XTS templates from components-core into React components while keeping
 the shared behaviour in one place.
