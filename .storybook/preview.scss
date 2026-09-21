@@ -6,6 +6,16 @@ body {
   background-color: var(--BODY_background-color);
 }
 
+.sbdocs-preview,
+.docs-story {
+  background-color: var(--BODY_background-color);
+}
+
+.accessibilityStandard {
+  color: var(--LINK_color);
+  font-weight: var(--pw_semibold_font-weight);
+}
+
 :root.dark .docblock-source,
 :root.dark .docblock-source code {
   color: var(--PRE_color) !important;

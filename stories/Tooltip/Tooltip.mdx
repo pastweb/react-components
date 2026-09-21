@@ -1,0 +1,71 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as TooltipStories from './Tooltip.stories';
+import TooltipComponent from './components/Tooltip/Tooltip.tsx?raw';
+import TooltipComponentTypes from './components/Tooltip/types.ts?raw';
+import TooltipComponentIndex from './components/Tooltip/index.ts?raw';
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+Tooltip supplies a short, non-interactive description when a trigger is hovered
+or focused. Keep essential instructions visible in the page instead.
+
+## React usage
+
+```tsx
+import { Button } from '@/react/components/Button';
+import { Tooltip } from '@/react/components/Tooltip';
+
+export function MyComponent() {
+  return (
+    <Tooltip content='Saves your changes without leaving this page.'>
+      <Button>Save changes</Button>
+    </Tooltip>
+  );
+}
+```
+
+## Configurations
+
+### Placement and delays
+
+```tsx
+import { Button } from '@/react/components/Button';
+import { Tooltip } from '@/react/components/Tooltip';
+
+export function MyComponent() {
+  return (
+    <Tooltip content='Available to administrators only.' placement='right-start' showDelay={500} hideDelay={150}>
+      <Button>Delete account</Button>
+    </Tooltip>
+  );
+}
+```
+
+### Text trigger
+
+Plain text is wrapped in a focusable trigger, so it remains available to
+keyboard users.
+
+```tsx
+import { Tooltip } from '@/react/components/Tooltip';
+
+export function MyComponent() {
+  return <Tooltip content='UTC time is used for exports.'>Export time</Tooltip>;
+}
+```
+
+## Tooltip implementation
+
+<Tabs defaultSelected='tooltip-component' style={{ height: 'auto' }} tabs={[
+  { id: 'tooltip-component', title: 'Tooltip.tsx', children: <Source code={TooltipComponent} language='tsx' /> },
+  { id: 'tooltip-types', title: 'types.ts', children: <Source code={TooltipComponentTypes} language='ts' /> },
+  { id: 'tooltip-index', title: 'index.ts', children: <Source code={TooltipComponentIndex} language='ts' /> },
+]} />
+
+## Tooltip Preview
+
+<Canvas of={TooltipStories.Tooltip} className='has-preview-padding has-taller-preview' layout='fullscreen' />
+<Controls of={TooltipStories.Tooltip} />

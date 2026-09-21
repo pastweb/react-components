@@ -50,6 +50,7 @@ const preview: Preview = {
     options: {
       storySort: {
         order: ['Overview', 'Components'],
+        method: 'alphabetical',
       },
     },
   },

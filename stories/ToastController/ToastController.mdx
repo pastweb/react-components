@@ -1,0 +1,120 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as ToastControllerStories from './ToastController.stories';
+import ToastControllerComponent from './components/ToastController/ToastController.tsx?raw';
+import ToastControllerComponentTypes from './components/ToastController/types.ts?raw';
+import ToastControllerComponentIndex from './components/ToastController/index.ts?raw';
+
+<Meta of={ToastControllerStories} />
+
+# ToastController
+
+ToastController presents a temporary, politely announced status message. Use a
+Notification as its content when the toast needs a title and a visible close
+action.
+
+## Portal installation
+
+ToastController is opened through `Portal`, so portal helpers must be installed
+before a toast can open. Install them once for the application with
+`PortalsProvider`, or install the same `installPortals(...)` installer on
+`GlobalContext`. Portal entries mount in their own React root, so their entry
+provider must install the same portal context too.
+
+## React usage
+
+```tsx
+import { createEntry, Portal, PortalsProvider, usePortal } from '@pastweb/react';
+import { Button } from '@/react/components/Button';
+import { Notification } from '@/react/components/Notification';
+import { ToastController, useToastContext } from '@/react/components/ToastController';
+
+const anchorsIds = { toaster: 'app-toaster' };
+
+function ToastContent() {
+  const { close } = useToastContext();
+
+  return (
+    <Notification onClose={() => close()} title='Saved'>
+      Your changes are now available.
+    </Notification>
+  );
+}
+
+function ToastLauncher() {
+  const toast = usePortal();
+
+  return (
+    <>
+      <Button onClick={() => toast.open()}>Save changes</Button>
+      <Portal path='toaster' use={toast}>
+        <ToastController ariaLabel='Saved'>
+          <ToastContent />
+        </ToastController>
+      </Portal>
+      <div id={anchorsIds.toaster} />
+    </>
+  );
+}
+
+function getEntry() {
+  return createEntry({
+    Providers: ({ children }) => (
+      <PortalsProvider anchorsIds={anchorsIds} getEntry={getEntry}>
+        {children}
+      </PortalsProvider>
+    ),
+  });
+}
+
+export function MyComponent() {
+  return (
+    <PortalsProvider anchorsIds={anchorsIds} getEntry={getEntry}>
+      <ToastLauncher />
+    </PortalsProvider>
+  );
+}
+```
+
+The equivalent GlobalContext installation is:
+
+```tsx
+import { GlobalContext, installPortals } from '@pastweb/react';
+
+<GlobalContext use={installPortals({ anchorsIds, getEntry })}>
+  <MyComponent />
+</GlobalContext>
+```
+
+## ToastController implementation
+
+<Tabs
+  defaultSelected='toast-controller-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'toast-controller-component',
+      title: 'ToastController.tsx',
+      children: <Source code={ToastControllerComponent} language='tsx' />,
+    },
+    {
+      id: 'toast-controller-types',
+      title: 'types.ts',
+      children: <Source code={ToastControllerComponentTypes} language='ts' />,
+    },
+    {
+      id: 'toast-controller-index',
+      title: 'index.ts',
+      children: <Source code={ToastControllerComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## ToastController Preview
+
+<Canvas
+  of={ToastControllerStories.ToastController}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={ToastControllerStories.ToastController} />

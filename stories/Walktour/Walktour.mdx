@@ -1,0 +1,97 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as WalktourStories from './Walktour.stories';
+import WalktourComponent from './components/Walktour/Walktour.tsx?raw';
+import WalktourComponentTypes from './components/Walktour/types.ts?raw';
+import WalktourComponentIndex from './components/Walktour/index.ts?raw';
+
+<Meta of={WalktourStories} />
+
+# Walktour
+
+Walktour guides users through a short ordered set of interface targets. Mount it
+through a portal so its fixed overlay is outside the view being highlighted.
+
+## Portal installation
+
+Install portals once with `PortalsProvider`, or install `installPortals(...)`
+on `GlobalContext`. As portal content mounts in a separate React root, install
+the same portal context in the entry provider too.
+
+## React usage
+
+```tsx
+import { createEntry, Portal, PortalsProvider, usePortal, useRef } from '@pastweb/react';
+import { Button } from '@/react/components/Button';
+import { Walktour, type WalktourStep } from '@/react/components/Walktour';
+
+const anchorsIds = { walktour: 'app-walktour' };
+
+function TourLauncher() {
+  const tour = usePortal();
+  const saveButton = useRef<HTMLElement | null>(null);
+  const steps: WalktourStep[] = [
+    { ref: saveButton, title: 'Save changes', description: 'Select Save to publish your updates.', placement: 'top' },
+  ];
+
+  return (
+    <>
+      <Button ref={saveButton} onClick={() => tour.open()}>Save changes</Button>
+      <Portal path='walktour' use={tour}>
+        <Walktour open steps={steps} onOpenChange={open => { if (!open) tour.remove(); }} />
+      </Portal>
+      <div id={anchorsIds.walktour} />
+    </>
+  );
+}
+
+function getEntry() {
+  return createEntry({
+    Providers: ({ children }) => <PortalsProvider anchorsIds={anchorsIds} getEntry={getEntry}>{children}</PortalsProvider>,
+  });
+}
+
+export function MyComponent() {
+  return <PortalsProvider anchorsIds={anchorsIds} getEntry={getEntry}><TourLauncher /></PortalsProvider>;
+}
+```
+
+## Configurations
+
+### Per-step behavior
+
+Steps can override placement, labels, mask geometry, and navigation behavior.
+
+```tsx
+const steps: WalktourStep[] = [
+  { ref: welcome, title: 'Welcome', description: 'Start here.', placement: 'bottom' },
+  { ref: actions, title: 'Actions', description: 'Click the target to continue.', nextOnTargetClick: true, placement: 'right' },
+  { title: 'Complete', description: 'You are ready.', placement: 'center', nextLabel: 'Finish' },
+];
+```
+
+### Mask interaction
+
+```tsx
+<Walktour
+  open
+  steps={steps}
+  closeOnMaskClick
+  disableMaskInteraction={false}
+  maskPadding={12}
+  maskRadius={8}
+/>
+```
+
+## Walktour implementation
+
+<Tabs defaultSelected='walktour-component' style={{ height: 'auto' }} tabs={[
+  { id: 'walktour-component', title: 'Walktour.tsx', children: <Source code={WalktourComponent} language='tsx' /> },
+  { id: 'walktour-types', title: 'types.ts', children: <Source code={WalktourComponentTypes} language='ts' /> },
+  { id: 'walktour-index', title: 'index.ts', children: <Source code={WalktourComponentIndex} language='ts' /> },
+]} />
+
+## Walktour Preview
+
+<Canvas of={WalktourStories.Walktour} className='has-preview-padding has-taller-preview' layout='fullscreen' />
+<Controls of={WalktourStories.Walktour} />

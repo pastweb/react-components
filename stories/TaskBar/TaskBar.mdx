@@ -1,0 +1,88 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as TaskBarStories from './TaskBar.stories';
+import TaskBarComponent from './components/TaskBar/TaskBar.tsx?raw';
+import TaskBarComponentTypes from './components/TaskBar/types.ts?raw';
+import TaskBarComponentIndex from './components/TaskBar/index.ts?raw';
+
+<Meta of={TaskBarStories} />
+
+# TaskBar
+
+TaskBar renders a button for each window registered with one application
+WindowManager. Selecting a task activates, minimizes, or restores its window.
+
+## Window manager installation
+
+Create one WindowManager per application and install it with
+`WindowManagerProvider`, or with `installWindowManager(...)` on `GlobalContext`.
+The TaskBar receives that same manager instance, and every managed `Portal`
+receives it through its `manager` prop.
+
+## React usage
+
+```tsx
+import { createWindowManager } from '@pastweb/tools';
+import { WindowManagerProvider, useWindowManager } from '@pastweb/react';
+import { TaskBar } from '@/react/components/TaskBar';
+
+const windowManager = createWindowManager();
+
+function AppTaskBar() {
+  const manager = useWindowManager();
+
+  return manager ? <TaskBar manager={manager} /> : null;
+}
+
+export function MyComponent() {
+  return (
+    <WindowManagerProvider manager={windowManager}>
+      <AppTaskBar />
+    </WindowManagerProvider>
+  );
+}
+```
+
+## Managed portal window
+
+The portal registers its entry with the manager. Set metadata after opening to
+choose the task-button label.
+
+```tsx
+import { useEffect } from 'react';
+import { Portal, usePortal, useWindowManager } from '@pastweb/react';
+import { WindowController } from '@/react/components/WindowController';
+
+export function MyComponent() {
+  const window = usePortal();
+  const manager = useWindowManager();
+
+  useEffect(() => {
+    const id = window.open();
+    if (id) manager?.setMeta(id, { label: 'Editor' });
+  }, [manager, window]);
+
+  if (!manager) return null;
+
+  return (
+    <Portal path='window' use={window} manager={manager}>
+      <WindowController manager={manager} mode='floating' ariaLabel='Editor'>
+        <div>Editor content</div>
+      </WindowController>
+    </Portal>
+  );
+}
+```
+
+## TaskBar implementation
+
+<Tabs defaultSelected='taskbar-component' style={{ height: 'auto' }} tabs={[
+  { id: 'taskbar-component', title: 'TaskBar.tsx', children: <Source code={TaskBarComponent} language='tsx' /> },
+  { id: 'taskbar-types', title: 'types.ts', children: <Source code={TaskBarComponentTypes} language='ts' /> },
+  { id: 'taskbar-index', title: 'index.ts', children: <Source code={TaskBarComponentIndex} language='ts' /> },
+]} />
+
+## TaskBar Preview
+
+<Canvas of={TaskBarStories.TaskBar} className='has-preview-padding has-taller-preview' layout='fullscreen' />
+<Controls of={TaskBarStories.TaskBar} />

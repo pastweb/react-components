@@ -1,0 +1,275 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as DateTimePickerStories from './DateTimePicker.stories';
+import DateTimePickerComponent from './components/DateTimePicker/DateTimePicker.tsx?raw';
+import DateTimePickerComponentTypes from './components/DateTimePicker/types.ts?raw';
+import DateTimePickerComponentIndex from './components/DateTimePicker/index.ts?raw';
+import CalendarComponent from '../../src/DateTimePicker/Calendar/Calendar.tsx?raw';
+import CalendarComponentTypes from '../../src/DateTimePicker/Calendar/types.ts?raw';
+
+<Meta of={DateTimePickerStories} />
+
+# DateTimePicker
+
+DateTimePicker selects a date, date range, multiple dates, or a date and time.
+It supports popup and inline calendars, controlled values, disabled dates, and a
+custom trigger slot.
+
+## React usage
+
+```tsx
+import { useState } from 'react';
+import { DateTimePicker, type DateTimePickerValue } from '@/react/components/DateTimePicker';
+
+export function MyComponent() {
+  const [value, setValue] = useState<DateTimePickerValue>(null);
+
+  return (
+    <DateTimePicker
+      label='Appointment'
+      value={value}
+      enableTime
+      minuteIncrement={15}
+      onChange={setValue}
+    />
+  );
+}
+```
+
+## Configurations
+
+The examples below use `DateTimePicker` from
+`@/react/components/DateTimePicker`. Controlled examples use
+`DateTimePickerValue` from the same module.
+
+### Multiple dates and ranges
+
+```tsx
+import { useState } from 'react';
+import { DateTimePicker, type DateTimePickerValue } from '@/react/components/DateTimePicker';
+
+export function MyComponent() {
+  const [availableDays, setAvailableDays] = useState<DateTimePickerValue>(null);
+  const [stay, setStay] = useState<DateTimePickerValue>(null);
+
+  return (
+    <>
+      <DateTimePicker
+        label='Available days'
+        mode='multiple'
+        value={availableDays}
+        onChange={setAvailableDays}
+      />
+      <DateTimePicker label='Stay' mode='range' value={stay} onChange={setStay} />
+    </>
+  );
+}
+```
+
+### Date and time
+
+Set `enableTime` to provide an hour and minute selector. Set `noCalendar` for a
+time-only picker.
+
+```tsx
+import { DateTimePicker } from '@/react/components/DateTimePicker';
+
+export function MyComponent() {
+  return (
+    <>
+      <DateTimePicker label='Appointment' enableTime minuteIncrement={15} />
+      <DateTimePicker label='Start time' enableTime noCalendar minuteIncrement={30} />
+    </>
+  );
+}
+```
+
+### Date limits and rules
+
+`disable` excludes matching dates; `enable` accepts only matching dates. Each
+rule may be a `Date`, an inclusive `{ from, to }` range, or a predicate.
+
+```tsx
+import { DateTimePicker } from '@/react/components/DateTimePicker';
+
+const today = new Date();
+const inTwoWeeks = new Date(today);
+inTwoWeeks.setDate(today.getDate() + 14);
+
+export function MyComponent() {
+  return (
+    <>
+      <DateTimePicker
+        label='Next two weeks'
+        minDate={today}
+        maxDate={inTwoWeeks}
+        disable={[date => date.getDay() === 0 || date.getDay() === 6]}
+      />
+      <DateTimePicker
+        label='Weekdays only'
+        enable={[date => date.getDay() > 0 && date.getDay() < 6]}
+      />
+    </>
+  );
+}
+```
+
+### Calendar presentation
+
+Use `inline` for an always-visible calendar, `yearSelect` for a bounded year
+picker, and calendar-state props for working days and holidays.
+
+```tsx
+import { DateTimePicker } from '@/react/components/DateTimePicker';
+
+const companyHoliday = new Date(2026, 11, 25);
+
+export function MyComponent() {
+  return (
+    <>
+      <DateTimePicker label='Inline range' mode='range' inline weekNumbers />
+      <DateTimePicker
+        label='Choose a year'
+        yearSelect
+        minDate={new Date(2023, 0, 1)}
+        maxDate={new Date(2029, 11, 31)}
+      />
+      <DateTimePicker
+        label='Four-day work week'
+        workingWeekDays={4}
+        holidaysDates={[companyHoliday]}
+      />
+    </>
+  );
+}
+```
+
+### Internationalization
+
+The picker does not read application i18n automatically. Provide translated
+calendar words with `locale`, set the first calendar column with
+`firstDayOfWeek`, and translate the accessible labels when needed.
+
+```tsx
+import type { DateTimePickerLocale } from '@/react/components/DateTimePicker';
+import { DateTimePicker } from '@/react/components/DateTimePicker';
+
+const italian: Partial<DateTimePickerLocale> = {
+  months: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+  weekdays: ['Domenica', 'Lunedì', 'Martedì', 'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'],
+  previousMonth: 'Mese precedente',
+  nextMonth: 'Mese successivo',
+  clear: 'Cancella',
+  today: 'Oggi',
+  hour: 'Ora',
+  minute: 'Minuto',
+};
+
+export function MyComponent() {
+  return (
+    <DateTimePicker
+      label='Appuntamento'
+      locale={italian}
+      firstDayOfWeek={1}
+      ariaLabel='Data e ora dell’appuntamento'
+      previousMonthAriaLabel='Mostra il mese precedente'
+      nextMonthAriaLabel='Mostra il mese successivo'
+      selectTimeAriaLabel='Scegli l’orario'
+    />
+  );
+}
+```
+
+### Custom trigger and display formatting
+
+Use the `target` template to replace the default trigger. `formatDate` changes
+the text shown for each selected date.
+
+```tsx
+import { Template } from '@pastweb/react';
+import { DateTimePicker } from '@/react/components/DateTimePicker';
+
+export function MyComponent() {
+  return (
+    <DateTimePicker
+      label='Departure'
+      formatDate={date => `Day ${date.getDate()} of month ${date.getMonth() + 1}`}
+    >
+      <Template name='target'>Open date picker</Template>
+    </DateTimePicker>
+  );
+}
+```
+
+### Controlled open state and form values
+
+`open` and `onOpenChange` control the popup. Add `name` to submit the selected
+date as a form field.
+
+```tsx
+import { useState } from 'react';
+import { DateTimePicker } from '@/react/components/DateTimePicker';
+
+export function MyComponent() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <form>
+      <DateTimePicker
+        label='Date field'
+        name='date'
+        enableTime
+        open={isOpen}
+        onOpenChange={setIsOpen}
+      />
+      <button type='button' onClick={() => setIsOpen(!isOpen)}>
+        {isOpen ? 'Close picker' : 'Open picker'}
+      </button>
+      <button type='submit'>Submit</button>
+    </form>
+  );
+}
+```
+
+## DateTimePicker implementation
+
+<Tabs
+  defaultSelected='date-time-picker-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'date-time-picker-component',
+      title: 'DateTimePicker.tsx',
+      children: <Source code={DateTimePickerComponent} language='tsx' />,
+    },
+    {
+      id: 'date-time-picker-types',
+      title: 'types.ts',
+      children: <Source code={DateTimePickerComponentTypes} language='ts' />,
+    },
+    {
+      id: 'date-time-picker-index',
+      title: 'index.ts',
+      children: <Source code={DateTimePickerComponentIndex} language='ts' />,
+    },
+    {
+      id: 'calendar-component',
+      title: 'Calendar.tsx',
+      children: <Source code={CalendarComponent} language='tsx' />,
+    },
+    {
+      id: 'calendar-types',
+      title: 'Calendar types.ts',
+      children: <Source code={CalendarComponentTypes} language='ts' />,
+    },
+  ]}
+/>
+
+## DateTimePicker Preview
+
+<Canvas
+  of={DateTimePickerStories.DateTimePicker}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={DateTimePickerStories.DateTimePicker} />

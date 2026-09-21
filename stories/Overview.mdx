@@ -7,6 +7,20 @@ import { Meta } from '@storybook/addon-docs/blocks';
 Interactive documentation for the public React renderers built on the
 framework-neutral behavior and style contracts from `@pastweb/components-core`.
 
+## Installation
+
+Install the React renderer package:
+
+```bash
+pnpm add @pastweb/react-components
+# or
+npm install @pastweb/react-components
+# or
+yarn add @pastweb/react-components
+```
+
+`@pastweb/react` and `@pastweb/components-core` are peer dependencies.
+
 ## Using these docs
 
 Each component page includes:
@@ -22,56 +36,30 @@ Component styles come from `@pastweb/components-core`. Shared CSS variables
 and document foundations are loaded once for every preview, while each story
 renderer loads its component-specific CSS module.
 
+## Accessibility standards
+
+Components use native HTML controls and document structure whenever the browser
+already provides the required behavior. Buttons, inputs, links, labels,
+headings, lists, landmarks, dialogs, and form controls keep their native
+semantics rather than recreating them with generic elements and ARIA roles.
+
+The renderers follow <span className='accessibilityStandard'>WCAG 2.2 Level AA</span>,
+the relevant <span className='accessibilityStandard'>WAI-ARIA Authoring Practices</span>
+pattern, and applicable <span className='accessibilityStandard'>GOV.UK Design System</span>
+guidance for each component. They provide accessible names and IDs,
+keep ARIA state synchronized with component state, preserve keyboard operation
+and focus order, expose visible focus indicators, and keep hidden or inactive
+content out of keyboard navigation. Modal components contain and restore focus;
+interactive controls use native keyboard behavior; and status content uses the
+appropriate live-region semantics.
+
+Shared styles respect `prefers-reduced-motion` and forced-colors preferences.
+Automated Storybook accessibility checks support review, while component pages
+document any interaction requirements that need manual verification.
+
+## Licence
+
+`@pastweb/react-components` is distributed under the MIT License. See the
+[`LICENSE`](../../LICENSE) file for the complete terms.
+
 Check the <a href='./?path=/docs/style-settings--docs' target='_top'>Style Settings</a> page for the style convention overwiew.
-
-
-## Components
-
-- <a href='./?path=/docs/components-accordion--docs' target='_top'>Accordion</a>
-  organizes related content into independently expandable panels.
-- <a href='./?path=/docs/components-button--docs' target='_top'>Button</a>
-  renders an accessible action with loading and disabled states.
-- <a href='./?path=/docs/components-buttons--docs' target='_top'>Buttons</a>
-  groups related Button components under one accessible label.
-- <a href='./?path=/docs/components-carousel--docs' target='_top'>Carousel</a>
-  presents a navigable collection of slides and carousel items.
-- <a href='./?path=/docs/components-checkbox--docs' target='_top'>Checkbox</a>
-  renders a native binary choice with a visible label or accessible name.
-- <a href='./?path=/docs/components-dropdown--docs' target='_top'>DropDown</a>
-  reveals short contextual content or actions from a trigger.
-- <a href='./?path=/docs/components-icon--docs' target='_top'>Icon</a>
-  renders a compact SVG or image symbol, decorative by default.
-- <a href='./?path=/docs/components-input--docs' target='_top'>Input</a>
-  renders a labelled native field with optional affixes and loading state.
-- <a href='./?path=/docs/components-link--docs' target='_top'>Link</a>
-  renders a native anchor and keeps unavailable links out of sequential focus.
-- <a href='./?path=/docs/components-notification--docs' target='_top'>Notification</a>
-  presents a politely announced message with optional title and close action.
-- <a href='./?path=/docs/components-pagination--docs' target='_top'>Pagination</a>
-  provides bounded navigation through a known number of result pages.
-- <a href='./?path=/docs/components-panel--docs' target='_top'>Panel</a>
-  groups related content with a heading, close action, and optional footer.
-- <a href='./?path=/docs/components-progressbar--docs' target='_top'>ProgressBar</a>
-  communicates determinate completion in linear or circular form.
-- <a href='./?path=/docs/components-radio--docs' target='_top'>Radio</a>
-  presents a labelled group in which exactly one enabled option can be selected.
-- <a href='./?path=/docs/components-rangeslider--docs' target='_top'>RangeSlider</a>
-  selects one numeric value from a bounded native range.
-- <a href='./?path=/docs/components-scrollarea--docs' target='_top'>ScrollArea</a>
-  provides a named, keyboard-focusable viewport for overflowing content.
-- <a href='./?path=/docs/components-select--docs' target='_top'>Select</a>
-  presents a labelled trigger and single-selection listbox.
-- <a href='./?path=/docs/components-spinner--docs' target='_top'>Spinner</a>
-  displays a rotating loading indicator with a polite status.
-- <a href='./?path=/docs/components-splitlayout--docs' target='_top'>SplitLayout</a>
-  arranges resizable panels with keyboard-operable separators.
-- <a href='./?path=/docs/components-stepper--docs' target='_top'>Stepper</a>
-  communicates progress through an ordered sequence of stages.
-- <a href='./?path=/docs/components-tabs--docs' target='_top'>Tabs</a>
-  organizes related content into keyboard-navigable tab panels.
-- <a href='./?path=/docs/components-tag--docs' target='_top'>Tag</a>
-  displays a short, non-interactive category or status label.
-- <a href='./?path=/docs/components-textarea--docs' target='_top'>TextArea</a>
-  is a labelled multiline text control with loading and disabled states.
-- <a href='./?path=/docs/components-toggle--docs' target='_top'>Toggle</a>
-  represents an immediate on/off setting as a native switch.

@@ -1,0 +1,68 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as PlaceholderStories from './Placeholder.stories';
+import PlaceholderComponent from './components/Placeholder/Placeholder.tsx?raw';
+import PlaceholderComponentTypes from './components/Placeholder/types.ts?raw';
+import PlaceholderComponentIndex from './components/Placeholder/index.ts?raw';
+
+<Meta of={PlaceholderStories} />
+
+# Placeholder
+
+Placeholder reserves space while content loads. It is decorative by default;
+use one non-decorative instance when the loading state must be announced.
+
+## React usage
+
+```tsx
+import { Placeholder } from '@/react/components/Placeholder';
+
+export function MyComponent() {
+  return <Placeholder className='is-block is-rounded' />;
+}
+```
+
+## Configurations
+
+### Skeleton layout
+
+Combine decorative placeholders to represent an avatar, title, and content.
+
+```tsx
+import { Placeholder } from '@/react/components/Placeholder';
+
+export function MyComponent() {
+  return (
+    <section aria-busy='true' aria-label='Loading profile'>
+      <Placeholder className='is-circle' />
+      <Placeholder className='is-pill' />
+      <Placeholder className='is-block is-rounded' />
+    </section>
+  );
+}
+```
+
+### Announced loading state
+
+Use status semantics once rather than announcing every skeleton shape.
+
+```tsx
+import { Placeholder } from '@/react/components/Placeholder';
+
+export function MyComponent() {
+  return <Placeholder decorative={false} ariaLabel='Loading search results' />;
+}
+```
+
+## Placeholder implementation
+
+<Tabs defaultSelected='placeholder-component' style={{ height: 'auto' }} tabs={[
+  { id: 'placeholder-component', title: 'Placeholder.tsx', children: <Source code={PlaceholderComponent} language='tsx' /> },
+  { id: 'placeholder-types', title: 'types.ts', children: <Source code={PlaceholderComponentTypes} language='ts' /> },
+  { id: 'placeholder-index', title: 'index.ts', children: <Source code={PlaceholderComponentIndex} language='ts' /> },
+]} />
+
+## Placeholder Preview
+
+<Canvas of={PlaceholderStories.Placeholder} className='has-preview-padding has-taller-preview' layout='fullscreen' />
+<Controls of={PlaceholderStories.Placeholder} />

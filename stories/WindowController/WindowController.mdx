@@ -1,0 +1,88 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as WindowControllerStories from './WindowController.stories';
+import WindowControllerComponent from './components/WindowController/WindowController.tsx?raw';
+import WindowControllerComponentTypes from './components/WindowController/types.ts?raw';
+import WindowControllerComponentIndex from './components/WindowController/index.ts?raw';
+
+<Meta of={WindowControllerStories} />
+
+# WindowController
+
+WindowController renders a modal dialog or a movable floating work surface. It
+can operate alone, or participate in an application WindowManager.
+
+## React usage
+
+```tsx
+import { Panel } from '@/react/components/Panel';
+import { WindowController, useWindowContext } from '@/react/components/WindowController';
+
+function WindowContent() {
+  const { close } = useWindowContext();
+
+  return <Panel closeButton onClose={() => close()} title='Account settings'>Update your profile details.</Panel>;
+}
+
+export function MyComponent() {
+  return (
+    <WindowController ariaLabel='Account settings'>
+      <WindowContent />
+    </WindowController>
+  );
+}
+```
+
+## Managed floating windows
+
+Create one manager at the application boundary and install it with
+`WindowManagerProvider` or `installWindowManager(...)` on `GlobalContext`.
+Mount managed windows through `Portal` with the same manager instance.
+
+```tsx
+import { createWindowManager } from '@pastweb/tools';
+import { Portal, WindowManagerProvider, usePortal } from '@pastweb/react';
+import { WindowController } from '@/react/components/WindowController';
+
+const windowManager = createWindowManager();
+
+function EditorWindow() {
+  const editor = usePortal();
+
+  return (
+    <>
+      <button type='button' onClick={() => editor.open()}>Open editor</button>
+      <Portal path='window' use={editor} manager={windowManager}>
+        <WindowController manager={windowManager} mode='floating' ariaLabel='Editor'>
+          <div>Editor content</div>
+        </WindowController>
+      </Portal>
+    </>
+  );
+}
+
+export function MyComponent() {
+  return <WindowManagerProvider manager={windowManager}><EditorWindow /></WindowManagerProvider>;
+}
+```
+
+## Configurations
+
+```tsx
+<WindowController mode='floating' ariaLabel='Inspector' width={480} height={360} resizable>
+  <Inspector />
+</WindowController>
+```
+
+## WindowController implementation
+
+<Tabs defaultSelected='window-controller-component' style={{ height: 'auto' }} tabs={[
+  { id: 'window-controller-component', title: 'WindowController.tsx', children: <Source code={WindowControllerComponent} language='tsx' /> },
+  { id: 'window-controller-types', title: 'types.ts', children: <Source code={WindowControllerComponentTypes} language='ts' /> },
+  { id: 'window-controller-index', title: 'index.ts', children: <Source code={WindowControllerComponentIndex} language='ts' /> },
+]} />
+
+## WindowController Preview
+
+<Canvas of={WindowControllerStories.WindowController} className='has-preview-padding has-taller-preview' layout='fullscreen' />
+<Controls of={WindowControllerStories.WindowController} />

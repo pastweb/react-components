@@ -1,0 +1,120 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as SheetControllerStories from './SheetController.stories';
+import SheetControllerComponent from './components/SheetController/SheetController.tsx?raw';
+import SheetControllerComponentTypes from './components/SheetController/types.ts?raw';
+import SheetControllerComponentIndex from './components/SheetController/index.ts?raw';
+
+<Meta of={SheetControllerStories} />
+
+# SheetController
+
+SheetController presents an animated dialog surface from an edge of a portal
+container. Use a Panel as its content when the sheet needs a heading and a
+native close action.
+
+## Portal installation
+
+SheetController content is normally opened through `Portal`, so portal helpers
+must be installed before a sheet can open. Install them once for the application
+with `PortalsProvider`, or install the same `installPortals(...)` installer on
+`GlobalContext`. Portal entries mount in their own React root, so their entry
+provider must install the same portal context too.
+
+## React usage
+
+```tsx
+import { createEntry, Portal, PortalsProvider, usePortal } from '@pastweb/react';
+import { Button } from '@/react/components/Button';
+import { Panel } from '@/react/components/Panel';
+import { SheetController, useSheetContext } from '@/react/components/SheetController';
+
+const anchorsIds = { viewSheet: 'app-view-sheet' };
+
+function SheetContent() {
+  const { close } = useSheetContext();
+
+  return (
+    <Panel closeButton onClose={() => close()} title='Account settings'>
+      Update your profile details.
+    </Panel>
+  );
+}
+
+function SheetLauncher() {
+  const sheet = usePortal();
+
+  return (
+    <>
+      <Button onClick={() => sheet.open()}>Open settings</Button>
+      <Portal path='viewSheet' use={sheet}>
+        <SheetController ariaLabel='Account settings' backdrop direction='right' modal>
+          <SheetContent />
+        </SheetController>
+      </Portal>
+      <div id={anchorsIds.viewSheet} />
+    </>
+  );
+}
+
+function getEntry() {
+  return createEntry({
+    Providers: ({ children }) => (
+      <PortalsProvider anchorsIds={anchorsIds} getEntry={getEntry}>
+        {children}
+      </PortalsProvider>
+    ),
+  });
+}
+
+export function MyComponent() {
+  return (
+    <PortalsProvider anchorsIds={anchorsIds} getEntry={getEntry}>
+      <SheetLauncher />
+    </PortalsProvider>
+  );
+}
+```
+
+The equivalent GlobalContext installation is:
+
+```tsx
+import { GlobalContext, installPortals } from '@pastweb/react';
+
+<GlobalContext use={installPortals({ anchorsIds, getEntry })}>
+  <MyComponent />
+</GlobalContext>
+```
+
+## SheetController implementation
+
+<Tabs
+  defaultSelected='sheet-controller-component'
+  style={{ height: 'auto' }}
+  tabs={[
+    {
+      id: 'sheet-controller-component',
+      title: 'SheetController.tsx',
+      children: <Source code={SheetControllerComponent} language='tsx' />,
+    },
+    {
+      id: 'sheet-controller-types',
+      title: 'types.ts',
+      children: <Source code={SheetControllerComponentTypes} language='ts' />,
+    },
+    {
+      id: 'sheet-controller-index',
+      title: 'index.ts',
+      children: <Source code={SheetControllerComponentIndex} language='ts' />,
+    },
+  ]}
+/>
+
+## SheetController Preview
+
+<Canvas
+  of={SheetControllerStories.SheetController}
+  className='has-preview-padding has-taller-preview'
+  layout='fullscreen'
+/>
+<Controls of={SheetControllerStories.SheetController} />

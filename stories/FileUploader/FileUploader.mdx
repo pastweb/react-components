@@ -1,0 +1,87 @@
+import { Canvas, Controls, Meta, Source } from '@storybook/addon-docs/blocks';
+import { TabsView as Tabs } from 'storybook/internal/components';
+import * as FileUploaderStories from './FileUploader.stories';
+import FileUploaderComponent from './components/FileUploader/FileUploader.tsx?raw';
+import FileUploaderComponentTypes from './components/FileUploader/types.ts?raw';
+import FileUploaderComponentIndex from './components/FileUploader/index.ts?raw';
+
+<Meta of={FileUploaderStories} />
+
+# FileUploader
+
+FileUploader opens the native file picker and can also accept dropped files. A
+visible trigger remains available to keyboard and assistive-technology users.
+
+## React usage
+
+```tsx
+import { FileUploader } from '@/react/components/FileUploader';
+
+export function MyComponent() {
+  return (
+    <FileUploader accept='image/*' label='Profile image' onAddFile={(file) => upload(file)}>
+      Choose image
+    </FileUploader>
+  );
+}
+```
+
+## Configurations
+
+### Multiple files and a dropzone
+
+```tsx
+import { FileUploader } from '@/react/components/FileUploader';
+
+export function MyComponent() {
+  return (
+    <FileUploader
+      accept='.pdf,.doc,.docx'
+      dropzone
+      label='Supporting documents'
+      maxNumber={3}
+      multiple
+      onAddFile={(file) => upload(file)}
+    >
+      Choose documents or drop them here
+    </FileUploader>
+  );
+}
+```
+
+### File limits
+
+`maxNumber` limits stored files and `maxSize` rejects oversized files. Check the
+file in `onAddFile` to show product-specific feedback for accepted or rejected
+uploads.
+
+```tsx
+import { FileUploader, formatSize } from '@/react/components/FileUploader';
+
+export function MyComponent() {
+  return (
+    <FileUploader
+      label='Attachments'
+      multiple
+      maxNumber={5}
+      maxSize={10 * 1024 * 1024}
+      onAddFile={(file) => console.log(`${file.name}: ${formatSize(file.size)}`)}
+    >
+      Choose up to five files
+    </FileUploader>
+  );
+}
+```
+
+## FileUploader implementation
+
+<Tabs defaultSelected='file-uploader-component' style={{ height: 'auto' }} tabs={[
+  { id: 'file-uploader-component', title: 'FileUploader.tsx', children: <Source code={FileUploaderComponent} language='tsx' /> },
+  { id: 'file-uploader-types', title: 'types.ts', children: <Source code={FileUploaderComponentTypes} language='ts' /> },
+  { id: 'file-uploader-index', title: 'index.ts', children: <Source code={FileUploaderComponentIndex} language='ts' /> },
+]} />
+
+## FileUploader Preview
+
+<Canvas of={FileUploaderStories.FileUploader} className='has-preview-padding has-taller-preview' layout='fullscreen' />
+<Controls of={FileUploaderStories.FileUploader} />
