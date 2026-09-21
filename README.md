@@ -1,14 +1,14 @@
 # @pastweb/react-components
 
 `@pastweb/react-components` is the React rendering package for the shared
-component contracts in [`@pastweb/components-core`](../components-core/README.md).
+component contracts in [`@pastweb/components-core`](https://www.npmjs.com/package/@pastweb/components-core).
 It turns the framework-neutral mediators, accessibility rules, public types,
 and XJS/XTS templates from components-core into React components while keeping
 the shared behaviour in one place.
 
 ## Features
 
-- **React-native rendering** — Provides React components, forwarded refs,
+- **React rendering** — Provides React components, forwarded refs,
   lifecycle integration, slots, and contexts for Pastweb component contracts.
 - **Shared behaviour** — Reuses the mediator logic, public props, keyboard
   interactions, and accessibility relationships defined by
@@ -22,12 +22,32 @@ the shared behaviour in one place.
 
 ## Installation
 
+Install the React renderer package:
+
 ```bash
-pnpm add @pastweb/react-components @pastweb/components-core @pastweb/react react react-dom
+pnpm add @pastweb/react-components
+# or
+npm install @pastweb/react-components
+# or
+yarn add @pastweb/react-components
 ```
 
-The renderer expects the corresponding `@pastweb/components-core` component
-styles and a `cls` function that maps component part names to those styles.
+`@pastweb/react` and `@pastweb/components-core` are peer dependencies. The
+renderer expects the shared component styles and a `cls` function that maps
+component part names to those styles.
+
+## Accessibility standards
+
+Components use native HTML elements whenever the browser already provides the
+required semantics and keyboard behavior. Buttons, inputs, links, labels,
+headings, landmarks, dialogs, and form controls preserve their native behavior
+instead of recreating it with generic elements and ARIA roles.
+
+The renderers follow **WCAG 2.2 Level AA**, the relevant **WAI-ARIA Authoring
+Practices** pattern, and applicable **GOV.UK Design System** guidance. They
+provide accessible names and relationships, synchronize ARIA state with
+component state, preserve focus order, and support keyboard operation. Shared
+styles respect reduced-motion and forced-colors preferences.
 
 ## Documentation Overview
 
@@ -49,3 +69,9 @@ hooks for composing custom descendants.
 - Shared mediator behaviour and accessibility semantics
 - React refs, lifecycle hooks, slots, and contexts through `@pastweb/react`
 - Interactive component documentation in Storybook
+
+## Licence
+
+This package is distributed under the MIT License. See the
+[LICENSE](https://github.com/pastweb/react-components-core/blob/master/LICENSE)
+file for the complete terms.
