@@ -10,13 +10,13 @@ importers:
     devDependencies:
       '@pastweb/components-core':
         specifier: file:../components-core
-        version: '@pastweb/components@file:../components-core(@floating-ui/dom@1.8.0)(@pastweb/tools@file:../tools(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1))(interactjs@1.10.28)'
+        version: file:../components-core(@floating-ui/dom@1.8.0)(@pastweb/tools@2.7.0(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1))(interactjs@1.10.28)
       '@pastweb/react':
-        specifier: file:../react
-        version: file:../react(@pastweb/tools@file:../tools(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(redux@5.0.1)
+        specifier: ^2.7.0
+        version: 2.7.0(@pastweb/tools@2.7.0(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(redux@5.0.1)
       '@pastweb/tools':
-        specifier: file:../tools
-        version: file:../tools(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1)
+        specifier: ^2.7.0
+        version: 2.7.0(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1)
       '@storybook/addon-a11y':
         specifier: 10.5.10
         version: 10.5.10(storybook@10.5.10(@types/react@19.2.18)(react@19.2.8))
@@ -793,15 +793,15 @@ packages:
     resolution: {integrity: sha512-7FNeNl8NCE7aINx7WXiKQrPYZWC/hvrTsmk6zmxbI7LTXE7hVek/n8AfVgpe2y82zl3w0HvCHN0bVKMBoJcC0w==}
     engines: {node: '>= 10.0.0'}
 
-  '@pastweb/components@file:../components-core':
+  '@pastweb/components-core@file:../components-core':
     resolution: {directory: ../components-core, type: directory}
     peerDependencies:
       '@floating-ui/dom': ^1.7.2
-      '@pastweb/tools': ^2.6.0
+      '@pastweb/tools': ^2.7.0
       interactjs: ^1.10.27
 
-  '@pastweb/react@file:../react':
-    resolution: {directory: ../react, type: directory}
+  '@pastweb/react@2.7.0':
+    resolution: {integrity: sha512-5n1+ktyfjyRpi/x8reT7KOoGPuvzO38XV2Q6KOhxTcvTlhSCMokY9a0cJa6q3zp3IsCDMTOK+HXWcaDv94BedA==}
     peerDependencies:
       '@pastweb/tools': ^2.6.0
       '@reduxjs/toolkit': '*'
@@ -815,8 +815,8 @@ packages:
       react-redux:
         optional: true
 
-  '@pastweb/tools@file:../tools':
-    resolution: {directory: ../tools, type: directory}
+  '@pastweb/tools@2.7.0':
+    resolution: {integrity: sha512-6obNuuGycOzybeyo8GmUWZMfPhpZbkxcaRB4PiV3zosZewxv5xSmt7RP6ddZ4Q3EW4U1Zfx2YU7TtfJ9y19tlQ==}
     peerDependencies:
       '@toon-format/toon': '*'
       '@urql/core': ^6.0.3
@@ -3158,20 +3158,20 @@ snapshots:
       '@parcel/watcher-win32-x64': 2.6.0
     optional: true
 
-  '@pastweb/components@file:../components-core(@floating-ui/dom@1.8.0)(@pastweb/tools@file:../tools(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1))(interactjs@1.10.28)':
+  '@pastweb/components-core@file:../components-core(@floating-ui/dom@1.8.0)(@pastweb/tools@2.7.0(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1))(interactjs@1.10.28)':
     dependencies:
       '@floating-ui/dom': 1.8.0
-      '@pastweb/tools': file:../tools(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1)
+      '@pastweb/tools': 2.7.0(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1)
       interactjs: 1.10.28
 
-  '@pastweb/react@file:../react(@pastweb/tools@file:../tools(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(redux@5.0.1)':
+  '@pastweb/react@2.7.0(@pastweb/tools@2.7.0(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(redux@5.0.1)':
     dependencies:
-      '@pastweb/tools': file:../tools(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1)
+      '@pastweb/tools': 2.7.0(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1)
       react: 19.2.8
       react-dom: 19.2.8(react@19.2.8)
       redux: 5.0.1
 
-  '@pastweb/tools@file:../tools(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1)':
+  '@pastweb/tools@2.7.0(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1)':
     dependencies:
       '@toon-format/toon': 4.1.1
       axios: 1.19.0

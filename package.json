@@ -27,13 +27,13 @@
     "test": "vitest"
   },
   "peerDependencies": {
-    "@pastweb/react": "^2.2.1",
+    "@pastweb/react": "^2.7.0",
     "react": "^19.2.7"
   },
   "devDependencies": {
     "@pastweb/components-core": "file:../components-core",
-    "@pastweb/react": "file:../react",
-    "@pastweb/tools": "file:../tools",
+    "@pastweb/react": "^2.7.0",
+    "@pastweb/tools": "^2.7.0",
     "@storybook/addon-a11y": "10.5.10",
     "@storybook/addon-docs": "10.5.10",
     "@storybook/addon-themes": "10.5.10",

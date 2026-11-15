@@ -2,3 +2,5 @@ allowBuilds:
   '@parcel/watcher': true
   core-js: true
   esbuild: true
+minimumReleaseAgeExclude:
+  - '@pastweb/react@2.7.0'
