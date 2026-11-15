@@ -90,7 +90,7 @@ const meta = {
       description: 'Disables the Button and prevents click handling.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.disabled) },
+        defaultValue: { summary: '-' },
       },
     },
     id: {
@@ -106,7 +106,7 @@ const meta = {
       description: 'Shows the loading state and disables the Button.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.loading) },
+        defaultValue: { summary: '-' },
       },
     },
     onClick: {

@@ -92,7 +92,7 @@ const meta = {
     closeOnEscKey: {
       control: 'boolean',
       description: 'Dismisses the toast when Escape is pressed.',
-      table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.closeOnEscKey) } },
+      table: { category: 'Props', defaultValue: { summary: '-' } },
     },
     delay: {
       control: { type: 'number', min: 0, step: 1 },
@@ -112,7 +112,7 @@ const meta = {
     pauseTimerOnOver: {
       control: 'boolean',
       description: 'Pauses auto-dismiss while pointer or keyboard focus is inside the toast.',
-      table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.pauseTimerOnOver) } },
+      table: { category: 'Props', defaultValue: { summary: '-' } },
     },
     placement: {
       control: 'select',
@@ -123,7 +123,7 @@ const meta = {
     resetTimerOnPause: {
       control: 'boolean',
       description: 'Restarts the delay when a paused timer resumes.',
-      table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.resetTimerOnPause) } },
+      table: { category: 'Props', defaultValue: { summary: '-' } },
     },
     timeUpdate: {
       control: { type: 'number', min: 1, step: 1 },

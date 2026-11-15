@@ -61,7 +61,7 @@ const meta = {
       description: 'Disables the first SelectItem.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_SELECT_ITEM_PROPS.disabled) },
+        defaultValue: { summary: '-' },
       },
     },
     value: {

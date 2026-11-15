@@ -59,7 +59,7 @@ const meta = {
       description: 'Removes navigation and sequential focus.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.disabled) },
+        defaultValue: { summary: '-' },
       },
     },
     href: {

@@ -28,7 +28,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>((props, ref) => {
           <div className={p.cls('header')}>
             <Slot name='header' />
           </div>
-          <div className={p.cls('body')}>
+          <div className={p.cls('body')} onScroll={m.onScroll}>
             <table
               ref={tableRef}
               className={p.cls('table', s.draggingColumnId && 'is-reordering')}

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest';
 import axe from 'axe-core';
-import { cleanup, render, screen, waitFor } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { Table } from '../../src/Table';
@@ -77,6 +77,19 @@ describe('Table', () => {
     const expandButton = screen.getByRole('button', { name: 'Expand row 0' });
     await user.click(expandButton);
     expect(onExpandedChange).toHaveBeenCalledWith({ 0: true });
+  });
+
+  it('given a scroll callback, when the table body scrolls, then it forwards the event', () => {
+    const onScroll = vi.fn();
+    const { container } = render(
+      <Table cls={cls} ariaLabel="People" columns={columns} data={[{ name: 'Ada', age: 36 }]} onScroll={onScroll} />,
+    );
+
+    const body = container.querySelector('.body');
+    expect(body).toBeInTheDocument();
+    fireEvent.scroll(body!);
+
+    expect(onScroll).toHaveBeenCalledTimes(1);
   });
 
   it('given an accessible table, when audited, then it has no automated accessibility violations', async () => {

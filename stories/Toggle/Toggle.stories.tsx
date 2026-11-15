@@ -62,7 +62,7 @@ const meta = {
       description: 'Makes the Toggle unavailable.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.disabled) },
+        defaultValue: { summary: '-' },
       },
     },
     id: {
@@ -129,7 +129,7 @@ const meta = {
       description: 'Controlled checked state.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.value) },
+        defaultValue: { summary: '-' },
       },
     },
     children: {

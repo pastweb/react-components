@@ -93,7 +93,7 @@ const meta = {
     backdrop: {
       control: 'boolean',
       description: 'Displays a native backdrop button behind the sheet.',
-      table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.backdrop) } },
+      table: { category: 'Props', defaultValue: { summary: '-' } },
     },
     children: {
       control: 'text',
@@ -120,7 +120,7 @@ const meta = {
     modal: {
       control: 'boolean',
       description: 'Enables modal dialog semantics and focus containment.',
-      table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.modal) } },
+      table: { category: 'Props', defaultValue: { summary: '-' } },
     },
     panelTitle: {
       control: 'text',

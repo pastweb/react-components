@@ -84,7 +84,7 @@ const meta = {
       description: 'Makes every navigation action unavailable.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.disabled) },
+        defaultValue: { summary: '-' },
       },
     },
     jumpBackAriaLabel: {

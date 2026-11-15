@@ -162,7 +162,7 @@ const meta = {
       description: 'Reverses header content order.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.rtl) },
+        defaultValue: { summary: '-' },
       },
     },
     title: {

@@ -102,7 +102,7 @@ const meta = {
       description: 'Disables Carousel navigation and autoplay controls.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.disabled) },
+        defaultValue: { summary: '-' },
       },
     },
     id: {

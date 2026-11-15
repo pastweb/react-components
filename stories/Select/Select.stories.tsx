@@ -82,7 +82,7 @@ const meta = {
       description: 'Disables the trigger and applies is-disabled.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.disabled) },
+        defaultValue: { summary: '-' },
       },
     },
     id: {
@@ -128,7 +128,7 @@ const meta = {
       description: 'Makes the trigger unavailable and applies is-loading.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.loading) },
+        defaultValue: { summary: '-' },
       },
     },
     name: {

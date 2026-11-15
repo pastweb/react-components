@@ -38,7 +38,7 @@ const meta = {
     content: { control: 'text', description: 'Body content rendered by the Panel inside the window.', table: { category: 'Example' } },
     height: { control: { type: 'number', min: 100, step: 10 }, description: 'Initial window height in pixels.', table: { category: 'Props' } },
     mode: { control: 'select', options: ['modal', 'floating'], description: 'Modal dialog or movable floating work surface.', table: { category: 'Props', defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.mode) } } },
-    resizable: { control: 'boolean', description: 'Enables resize handles for floating windows.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.resizable) } } },
+    resizable: { control: 'boolean', description: 'Enables resize handles for floating windows.', table: { category: 'Props', defaultValue: { summary: '-' } } },
     title: { control: 'text', description: 'Panel heading inside the window.', table: { category: 'Example' } },
     width: { control: { type: 'number', min: 100, step: 10 }, description: 'Initial window width in pixels.', table: { category: 'Props' } },
   },

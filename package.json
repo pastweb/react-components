@@ -1,6 +1,6 @@
 {
   "name": "@pastweb/react-components",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "React renderers for the framework-neutral component contracts in @pastweb/components-core.",
   "keywords": [
     "pastweb",
@@ -183,6 +183,34 @@
       "import": "./dist/Checkbox/types.mjs",
       "require": "./dist/Checkbox/types.cjs"
     },
+    "./DateTimePicker": {
+      "import": "./dist/DateTimePicker/index.mjs",
+      "require": "./dist/DateTimePicker/index.cjs"
+    },
+    "./DateTimePicker/Calendar": {
+      "import": "./dist/DateTimePicker/Calendar/index.mjs",
+      "require": "./dist/DateTimePicker/Calendar/index.cjs"
+    },
+    "./DateTimePicker/Calendar/Calendar": {
+      "import": "./dist/DateTimePicker/Calendar/Calendar.mjs",
+      "require": "./dist/DateTimePicker/Calendar/Calendar.cjs"
+    },
+    "./DateTimePicker/Calendar/types": {
+      "import": "./dist/DateTimePicker/Calendar/types.mjs",
+      "require": "./dist/DateTimePicker/Calendar/types.cjs"
+    },
+    "./DateTimePicker/DateTimePicker": {
+      "import": "./dist/DateTimePicker/DateTimePicker.mjs",
+      "require": "./dist/DateTimePicker/DateTimePicker.cjs"
+    },
+    "./DateTimePicker/types": {
+      "import": "./dist/DateTimePicker/types.mjs",
+      "require": "./dist/DateTimePicker/types.cjs"
+    },
+    "./DateTimePicker/useTargetProps": {
+      "import": "./dist/DateTimePicker/useTargetProps.mjs",
+      "require": "./dist/DateTimePicker/useTargetProps.cjs"
+    },
     "./DropDown": {
       "import": "./dist/DropDown/index.mjs",
       "require": "./dist/DropDown/index.cjs"
@@ -198,6 +226,30 @@
     "./DropDown/types": {
       "import": "./dist/DropDown/types.mjs",
       "require": "./dist/DropDown/types.cjs"
+    },
+    "./DropDown/useDropDownContext": {
+      "import": "./dist/DropDown/useDropDownContext.mjs",
+      "require": "./dist/DropDown/useDropDownContext.cjs"
+    },
+    "./FileUploader": {
+      "import": "./dist/FileUploader/index.mjs",
+      "require": "./dist/FileUploader/index.cjs"
+    },
+    "./FileUploader/constants": {
+      "import": "./dist/FileUploader/constants.mjs",
+      "require": "./dist/FileUploader/constants.cjs"
+    },
+    "./FileUploader/FileUploader": {
+      "import": "./dist/FileUploader/FileUploader.mjs",
+      "require": "./dist/FileUploader/FileUploader.cjs"
+    },
+    "./FileUploader/types": {
+      "import": "./dist/FileUploader/types.mjs",
+      "require": "./dist/FileUploader/types.cjs"
+    },
+    "./FileUploader/useFileUploaderContext": {
+      "import": "./dist/FileUploader/useFileUploaderContext.mjs",
+      "require": "./dist/FileUploader/useFileUploaderContext.cjs"
     },
     "./Icon": {
       "import": "./dist/Icon/index.mjs",
@@ -295,6 +347,22 @@
       "import": "./dist/Panel/types.mjs",
       "require": "./dist/Panel/types.cjs"
     },
+    "./Placeholder": {
+      "import": "./dist/Placeholder/index.mjs",
+      "require": "./dist/Placeholder/index.cjs"
+    },
+    "./Placeholder/constants": {
+      "import": "./dist/Placeholder/constants.mjs",
+      "require": "./dist/Placeholder/constants.cjs"
+    },
+    "./Placeholder/Placeholder": {
+      "import": "./dist/Placeholder/Placeholder.mjs",
+      "require": "./dist/Placeholder/Placeholder.cjs"
+    },
+    "./Placeholder/types": {
+      "import": "./dist/Placeholder/types.mjs",
+      "require": "./dist/Placeholder/types.cjs"
+    },
     "./ProgressBar": {
       "import": "./dist/ProgressBar/index.mjs",
       "require": "./dist/ProgressBar/index.cjs"
@@ -391,6 +459,10 @@
       "import": "./dist/Select/types.mjs",
       "require": "./dist/Select/types.cjs"
     },
+    "./Select/useSelectContext": {
+      "import": "./dist/Select/useSelectContext.mjs",
+      "require": "./dist/Select/useSelectContext.cjs"
+    },
     "./SheetController": {
       "import": "./dist/SheetController/index.mjs",
       "require": "./dist/SheetController/index.cjs"
@@ -483,6 +555,30 @@
       "import": "./dist/Table/constants.mjs",
       "require": "./dist/Table/constants.cjs"
     },
+    "./Table/ExpandButton": {
+      "import": "./dist/Table/ExpandButton/index.mjs",
+      "require": "./dist/Table/ExpandButton/index.cjs"
+    },
+    "./Table/ExpandButton/ExpandButton": {
+      "import": "./dist/Table/ExpandButton/ExpandButton.mjs",
+      "require": "./dist/Table/ExpandButton/ExpandButton.cjs"
+    },
+    "./Table/ExpandButton/types": {
+      "import": "./dist/Table/ExpandButton/types.mjs",
+      "require": "./dist/Table/ExpandButton/types.cjs"
+    },
+    "./Table/ExpandGuide": {
+      "import": "./dist/Table/ExpandGuide/index.mjs",
+      "require": "./dist/Table/ExpandGuide/index.cjs"
+    },
+    "./Table/ExpandGuide/ExpandGuide": {
+      "import": "./dist/Table/ExpandGuide/ExpandGuide.mjs",
+      "require": "./dist/Table/ExpandGuide/ExpandGuide.cjs"
+    },
+    "./Table/ExpandGuide/types": {
+      "import": "./dist/Table/ExpandGuide/types.mjs",
+      "require": "./dist/Table/ExpandGuide/types.cjs"
+    },
     "./Table/PinnedTable": {
       "import": "./dist/Table/PinnedTable/index.mjs",
       "require": "./dist/Table/PinnedTable/index.cjs"
@@ -495,6 +591,30 @@
       "import": "./dist/Table/PinnedTable/types.mjs",
       "require": "./dist/Table/PinnedTable/types.cjs"
     },
+    "./Table/Row": {
+      "import": "./dist/Table/Row/index.mjs",
+      "require": "./dist/Table/Row/index.cjs"
+    },
+    "./Table/Row/Row": {
+      "import": "./dist/Table/Row/Row.mjs",
+      "require": "./dist/Table/Row/Row.cjs"
+    },
+    "./Table/Row/types": {
+      "import": "./dist/Table/Row/types.mjs",
+      "require": "./dist/Table/Row/types.cjs"
+    },
+    "./Table/Rows": {
+      "import": "./dist/Table/Rows/index.mjs",
+      "require": "./dist/Table/Rows/index.cjs"
+    },
+    "./Table/Rows/Rows": {
+      "import": "./dist/Table/Rows/Rows.mjs",
+      "require": "./dist/Table/Rows/Rows.cjs"
+    },
+    "./Table/Rows/types": {
+      "import": "./dist/Table/Rows/types.mjs",
+      "require": "./dist/Table/Rows/types.cjs"
+    },
     "./Table/Table": {
       "import": "./dist/Table/Table.mjs",
       "require": "./dist/Table/Table.cjs"
@@ -502,6 +622,10 @@
     "./Table/types": {
       "import": "./dist/Table/types.mjs",
       "require": "./dist/Table/types.cjs"
+    },
+    "./Table/useTableContext": {
+      "import": "./dist/Table/useTableContext.mjs",
+      "require": "./dist/Table/useTableContext.cjs"
     },
     "./Tabs": {
       "import": "./dist/Tabs/index.mjs",
@@ -527,22 +651,6 @@
       "import": "./dist/Tabs/Tab/types.mjs",
       "require": "./dist/Tabs/Tab/types.cjs"
     },
-    "./Tabs/TabContent": {
-      "import": "./dist/Tabs/TabContent/index.mjs",
-      "require": "./dist/Tabs/TabContent/index.cjs"
-    },
-    "./Tabs/TabContent/constants": {
-      "import": "./dist/Tabs/TabContent/constants.mjs",
-      "require": "./dist/Tabs/TabContent/constants.cjs"
-    },
-    "./Tabs/TabContent/TabContent": {
-      "import": "./dist/Tabs/TabContent/TabContent.mjs",
-      "require": "./dist/Tabs/TabContent/TabContent.cjs"
-    },
-    "./Tabs/TabContent/types": {
-      "import": "./dist/Tabs/TabContent/types.mjs",
-      "require": "./dist/Tabs/TabContent/types.cjs"
-    },
     "./Tabs/Tabs": {
       "import": "./dist/Tabs/Tabs.mjs",
       "require": "./dist/Tabs/Tabs.cjs"
@@ -550,6 +658,10 @@
     "./Tabs/types": {
       "import": "./dist/Tabs/types.mjs",
       "require": "./dist/Tabs/types.cjs"
+    },
+    "./Tabs/useTabsContext": {
+      "import": "./dist/Tabs/useTabsContext.mjs",
+      "require": "./dist/Tabs/useTabsContext.cjs"
     },
     "./Tag": {
       "import": "./dist/Tag/index.mjs",
@@ -566,6 +678,26 @@
     "./Tag/types": {
       "import": "./dist/Tag/types.mjs",
       "require": "./dist/Tag/types.cjs"
+    },
+    "./TaskBar": {
+      "import": "./dist/TaskBar/index.mjs",
+      "require": "./dist/TaskBar/index.cjs"
+    },
+    "./TaskBar/constants": {
+      "import": "./dist/TaskBar/constants.mjs",
+      "require": "./dist/TaskBar/constants.cjs"
+    },
+    "./TaskBar/TaskBar": {
+      "import": "./dist/TaskBar/TaskBar.mjs",
+      "require": "./dist/TaskBar/TaskBar.cjs"
+    },
+    "./TaskBar/taskBarButtons": {
+      "import": "./dist/TaskBar/taskBarButtons.mjs",
+      "require": "./dist/TaskBar/taskBarButtons.cjs"
+    },
+    "./TaskBar/types": {
+      "import": "./dist/TaskBar/types.mjs",
+      "require": "./dist/TaskBar/types.cjs"
     },
     "./TextArea": {
       "import": "./dist/TextArea/index.mjs",
@@ -622,6 +754,18 @@
     "./Tooltip/types": {
       "import": "./dist/Tooltip/types.mjs",
       "require": "./dist/Tooltip/types.cjs"
+    },
+    "./Walktour": {
+      "import": "./dist/Walktour/index.mjs",
+      "require": "./dist/Walktour/index.cjs"
+    },
+    "./Walktour/types": {
+      "import": "./dist/Walktour/types.mjs",
+      "require": "./dist/Walktour/types.cjs"
+    },
+    "./Walktour/Walktour": {
+      "import": "./dist/Walktour/Walktour.mjs",
+      "require": "./dist/Walktour/Walktour.cjs"
     },
     "./WindowController": {
       "import": "./dist/WindowController/index.mjs",

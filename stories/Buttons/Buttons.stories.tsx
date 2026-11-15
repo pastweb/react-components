@@ -104,7 +104,7 @@ const meta = {
       description: 'Disables interaction with every Button in the group.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.disabled) },
+        defaultValue: { summary: '-' },
       },
     },
     id: {

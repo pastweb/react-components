@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { getWeekNumber } from '@pastweb/components-core/DateTimePicker';
 import type { CalendarProps } from './types';
 
-export function Calendar({ mediator: m, props: p, className, calendarRef }: CalendarProps) {
+export function Calendar({ mediator: m, props: p, className, calendarRef, timeToggleRef }: CalendarProps) {
   const s = m.state;
 
   return (
@@ -68,7 +68,7 @@ export function Calendar({ mediator: m, props: p, className, calendarRef }: Cale
           </div>
           <footer className={p.cls('footer')}>
             <button type='button' className={p.cls('action')} onClick={() => m.selectDate(new Date())}>{s.locale.today}</button>
-            {p.enableTime ? <button ref={m.setTimeToggleReference} type='button' className={p.cls('action', 'timeToggle')} aria-label={p.selectTimeAriaLabel} aria-expanded={s.isTimePickerOpen} onClick={m.toggleTimePicker}>⏰︎</button> : null}
+            {p.enableTime ? <button ref={timeToggleRef} type='button' className={p.cls('action', 'timeToggle')} aria-label={p.selectTimeAriaLabel} aria-expanded={s.isTimePickerOpen} onClick={m.toggleTimePicker}>⏰︎</button> : null}
             <button type='button' className={p.cls('action')} onClick={m.clear}>{s.locale.clear}</button>
           </footer>
         </div>

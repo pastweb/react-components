@@ -131,7 +131,7 @@ const meta = {
       description: 'Makes the Input unavailable.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.disabled) },
+        defaultValue: { summary: '-' },
       },
     },
     id: {
@@ -190,7 +190,7 @@ const meta = {
       description: 'Marks the Input busy and temporarily unavailable.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.loading) },
+        defaultValue: { summary: '-' },
       },
     },
     loadingContent: {
@@ -242,7 +242,7 @@ const meta = {
       description: 'Marks the value as required.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.required) },
+        defaultValue: { summary: '-' },
       },
     },
     right: {

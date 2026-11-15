@@ -53,7 +53,7 @@ const meta = {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: String(DEFAULT_CAROUSEL_ITEM_PROPS.disabled),
+          summary: '-',
         },
       },
     },

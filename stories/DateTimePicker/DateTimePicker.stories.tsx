@@ -55,12 +55,12 @@ const meta = {
     disabled: {
       control: 'boolean',
       description: 'Disables the trigger and calendar controls.',
-      table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.disabled) } },
+      table: { category: 'Props', defaultValue: { summary: '-' } },
     },
     enableTime: {
       control: 'boolean',
       description: 'Enables hour and minute selection.',
-      table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.enableTime) } },
+      table: { category: 'Props', defaultValue: { summary: '-' } },
     },
     firstDayOfWeek: {
       control: { type: 'number', min: 0, max: 6, step: 1 },
@@ -70,7 +70,7 @@ const meta = {
     inline: {
       control: 'boolean',
       description: 'Renders the calendar in the document instead of a popup.',
-      table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.inline) } },
+      table: { category: 'Props', defaultValue: { summary: '-' } },
     },
     label: {
       control: 'text',
@@ -91,7 +91,7 @@ const meta = {
     noCalendar: {
       control: 'boolean',
       description: 'Shows only the time selector when time selection is enabled.',
-      table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.noCalendar) } },
+      table: { category: 'Props', defaultValue: { summary: '-' } },
     },
     onChange: {
       control: false,
@@ -111,12 +111,12 @@ const meta = {
     weekNumbers: {
       control: 'boolean',
       description: 'Displays a week-number column in the calendar.',
-      table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.weekNumbers) } },
+      table: { category: 'Props', defaultValue: { summary: '-' } },
     },
     yearSelect: {
       control: 'boolean',
       description: 'Displays a year selector in the calendar header.',
-      table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.yearSelect) } },
+      table: { category: 'Props', defaultValue: { summary: '-' } },
     },
   },
 } satisfies Meta<DateTimePickerStoryArgs>;

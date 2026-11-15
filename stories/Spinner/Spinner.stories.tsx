@@ -65,7 +65,7 @@ const meta = {
       description: 'Removes status semantics and applies is-decorative.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.decorative) },
+        defaultValue: { summary: '-' },
       },
     },
   },

@@ -67,7 +67,7 @@ const meta = {
       description: 'Suppresses horizontal overflow.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.hideX) },
+        defaultValue: { summary: '-' },
       },
     },
     hideY: {
@@ -75,7 +75,7 @@ const meta = {
       description: 'Suppresses vertical overflow.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.hideY) },
+        defaultValue: { summary: '-' },
       },
     },
     id: {
@@ -88,7 +88,7 @@ const meta = {
       description: 'Requests initial vertical end alignment after mount.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.scrollBottom) },
+        defaultValue: { summary: '-' },
       },
     },
     scrollRight: {
@@ -96,7 +96,7 @@ const meta = {
       description: 'Requests initial horizontal end alignment after mount.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.scrollRight) },
+        defaultValue: { summary: '-' },
       },
     },
     tabIndex: {

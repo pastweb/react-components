@@ -65,7 +65,7 @@ const meta = {
       description: 'Applies is-rounded.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.rounded) },
+        defaultValue: { summary: '-' },
       },
     },
   },

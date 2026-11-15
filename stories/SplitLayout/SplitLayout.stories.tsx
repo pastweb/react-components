@@ -52,7 +52,7 @@ const meta = {
       description: 'Prevents resizing and applies is-disabled.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.disabled) },
+        defaultValue: { summary: '-' },
       },
     },
     keyboardStep: {

@@ -82,7 +82,7 @@ const meta = {
       description: 'Makes the slider unavailable.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.disabled) },
+        defaultValue: { summary: '-' },
       },
     },
     id: {

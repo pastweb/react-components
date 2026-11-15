@@ -74,7 +74,7 @@ export const FileUploader = forwardRef<HTMLDivElement, FileUploaderProps>((props
           multiple={p.multiple}
           disabled={s.isDisabled}
           tabIndex={-1}
-          onChange={m.onChange}
+          onChange={event => m.onChange(event)}
         />
       </div>
     </GlobalContext>

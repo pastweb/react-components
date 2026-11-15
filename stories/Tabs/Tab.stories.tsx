@@ -52,7 +52,7 @@ const meta = {
       control: 'boolean',
       description: 'Disables the first Tab.',
       table: {
-        defaultValue: { summary: String(DEFAULT_TAB_PROPS.disabled) },
+        defaultValue: { summary: '-' },
       },
     },
     onClick: {

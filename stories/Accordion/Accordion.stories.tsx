@@ -81,7 +81,7 @@ const meta = {
       description: 'Disables every AccordionPanel trigger.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.disabled) },
+        defaultValue: { summary: '-' },
       },
     },
     id: {
@@ -97,7 +97,7 @@ const meta = {
       description: 'Enables right-to-left panel header layout.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.rtl) },
+        defaultValue: { summary: '-' },
       },
     },
     transitionDuration: {

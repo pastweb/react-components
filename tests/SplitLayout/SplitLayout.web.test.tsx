@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/vitest';
 import axe from 'axe-core';
-import { cleanup, render, screen, waitFor } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { SplitLayout, SplitLayoutItem } from '../../src/SplitLayout';
@@ -41,6 +41,33 @@ describe('SplitLayout', () => {
     await user.keyboard('{ArrowRight}');
     await waitFor(() => expect(separator).toHaveAttribute('aria-valuenow', '52'));
     expect(onSizesChange).toHaveBeenCalledWith([52, 48]);
+  });
+
+  it('given a separator, when it is dragged, then the mediator resizes its adjacent panels', async () => {
+    const onSizesChange = vi.fn();
+    render(<Layout onSizesChange={onSizesChange} />);
+    const separator = screen.getByRole('separator');
+    const setPointerCapture = vi.fn();
+    const releasePointerCapture = vi.fn();
+
+    Object.defineProperties(separator, {
+      hasPointerCapture: { configurable: true, value: () => true },
+      releasePointerCapture: { configurable: true, value: releasePointerCapture },
+      setPointerCapture: { configurable: true, value: setPointerCapture },
+    });
+    Object.defineProperty(separator.parentElement, 'getBoundingClientRect', {
+      configurable: true,
+      value: () => ({ height: 100, width: 200 }),
+    });
+
+    fireEvent.pointerDown(separator, { clientX: 100, clientY: 0, pointerId: 1 });
+    fireEvent.pointerMove(separator, { clientX: 120, clientY: 0, pointerId: 1 });
+    fireEvent.pointerUp(separator, { clientX: 120, clientY: 0, pointerId: 1 });
+
+    expect(setPointerCapture).toHaveBeenCalledWith(1);
+    expect(releasePointerCapture).toHaveBeenCalledWith(1);
+    expect(onSizesChange).toHaveBeenCalledWith([60, 40]);
+    await waitFor(() => expect(separator).toHaveAttribute('aria-valuenow', '60'));
   });
 
   it('given a disabled layout, when rendered, then separator leaves the tab order', () => {

@@ -71,15 +71,15 @@ const meta = {
       description: 'Makes the field unavailable.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.disabled) },
+        defaultValue: { summary: '-' },
       },
     },
-    isLoading: {
+    loading: {
       control: 'boolean',
       description: 'Marks the field busy and shows the loading slot.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.isLoading) },
+        defaultValue: { summary: '-' },
       },
     },
     label: {
@@ -111,7 +111,7 @@ const meta = {
       description: 'Prevents editing.',
       table: {
         category: 'Props',
-        defaultValue: { summary: String(DEFAULT_PROPS.readOnly) },
+        defaultValue: { summary: '-' },
       },
     },
     value: {

@@ -68,9 +68,9 @@ const meta = {
   argTypes: {
     className: { control: 'text', description: 'Additional classes applied to the Walktour root.', table: { category: 'Props', defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.className) } } },
     closeOnEscape: { control: 'boolean', description: 'Closes an eligible tour step when Escape is pressed.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.closeOnEscape) } } },
-    closeOnMaskClick: { control: 'boolean', description: 'Closes an eligible tour step when the mask is activated.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.closeOnMaskClick) } } },
-    disableMask: { control: 'boolean', description: 'Hides the dimmed mask and target spotlight.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.disableMask) } } },
-    disableMaskInteraction: { control: 'boolean', description: 'Prevents interaction with the highlighted target.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.disableMaskInteraction) } } },
+    closeOnMaskClick: { control: 'boolean', description: 'Closes an eligible tour step when the mask is activated.', table: { category: 'Props', defaultValue: { summary: '-' } } },
+    disableMask: { control: 'boolean', description: 'Hides the dimmed mask and target spotlight.', table: { category: 'Props', defaultValue: { summary: '-' } } },
+    disableMaskInteraction: { control: 'boolean', description: 'Prevents interaction with the highlighted target.', table: { category: 'Props', defaultValue: { summary: '-' } } },
     maskPadding: { control: { type: 'number', min: 0, step: 1 }, description: 'Space around the highlighted target in pixels.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.maskPadding) } } },
     maskRadius: { control: { type: 'number', min: 0, step: 1 }, description: 'Target spotlight corner radius in pixels.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.maskRadius) } } },
     offset: { control: { type: 'number', min: 0, step: 1 }, description: 'Gap between a target and its tour card in pixels.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.offset) } } },

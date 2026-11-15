@@ -26,7 +26,7 @@ const meta = {
     children: { control: 'text', description: 'Label rendered by the trigger Button.', table: { category: 'Example' } },
     className: { control: 'text', description: 'Additional classes applied to the Tooltip root.', table: { category: 'Props', defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.className) } } },
     content: { control: 'text', description: 'Short non-interactive description shown for the trigger.', table: { category: 'Props', defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.content) } } },
-    disabled: { control: 'boolean', description: 'Prevents the tooltip from opening.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.disabled) } } },
+    disabled: { control: 'boolean', description: 'Prevents the tooltip from opening.', table: { category: 'Props', defaultValue: { summary: '-' } } },
     hideDelay: { control: { type: 'number', min: 0, step: 50 }, description: 'Pointer-leave closing delay in milliseconds.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.hideDelay) } } },
     offset: { control: { type: 'number', min: 0, step: 1 }, description: 'Gap between the trigger and tooltip in pixels.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.offset) } } },
     placement: { control: 'select', options: ['top', 'top-start', 'top-end', 'right', 'right-start', 'right-end', 'bottom', 'bottom-start', 'bottom-end', 'left', 'left-start', 'left-end'], description: 'Preferred side and alignment for the tooltip.', table: { category: 'Props', defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.placement) } } },

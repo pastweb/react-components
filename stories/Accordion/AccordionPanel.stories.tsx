@@ -44,7 +44,7 @@ const meta = {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: String(DEFAULT_ACCORDION_PANEL_PROPS.disabled),
+          summary: '-',
         },
       },
     },
@@ -73,7 +73,7 @@ const meta = {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: String(DEFAULT_ACCORDION_PANEL_PROPS.isOpen),
+          summary: '-',
         },
       },
     },
@@ -83,7 +83,7 @@ const meta = {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: String(DEFAULT_ACCORDION_PANEL_PROPS.landmark),
+          summary: '-',
         },
       },
     },
@@ -98,7 +98,7 @@ const meta = {
       table: {
         category: 'Props',
         defaultValue: {
-          summary: String(DEFAULT_ACCORDION_PANEL_PROPS.rtl),
+          summary: '-',
         },
       },
     },

@@ -1,16 +1,19 @@
-import { forwardRef } from 'react';
-import { useBeforeUnmount, useMediator, useMounted, useSlots, withDefaultProps } from '@pastweb/react';
-import { DEFAULT_PROPS, dateTimePickerMediator } from '@pastweb/components-core/DateTimePicker';
+import { forwardRef, useEffect } from 'react';
+import { GlobalContext, useBeforeUnmount, useMediator, useMounted, useRef, useSlots, withDefaultProps } from '@pastweb/react';
+import { DATETIME_PICKER_TRIGGER_PROPS_CONTEXT_KEY, DEFAULT_PROPS, dateTimePickerMediator } from '@pastweb/components-core/DateTimePicker';
 import { Calendar } from './Calendar';
-import type { DateTimePickerDefaultProps, DateTimePickerMediator, DateTimePickerProps } from './types';
+import type { DateTimePickerDefaultProps, DateTimePickerMediator, DateTimePickerProps, DateTimePickerTargetProps } from './types';
 
 export const DateTimePicker = forwardRef<HTMLDivElement, DateTimePickerProps>((props, ref) => {
   const p = withDefaultProps<DateTimePickerDefaultProps>(props, DEFAULT_PROPS);
   const m = useMediator<DateTimePickerMediator>(dateTimePickerMediator, p);
   const s = m.state;
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const calendarRef = useRef<HTMLDivElement | null>(null);
+  const timeToggleRef = useRef<HTMLButtonElement | null>(null);
   const { Slots, Slot } = useSlots(p.children);
-  const targetProps = {
-    ref: m.setTriggerReference,
+  const targetProps: DateTimePickerTargetProps = {
+    ref: triggerRef,
     id: s.triggerId,
     role: 'button',
     tabIndex: p.disabled ? -1 : 0,
@@ -23,15 +26,19 @@ export const DateTimePicker = forwardRef<HTMLDivElement, DateTimePickerProps>((p
     onKeyDown: m.onKeyDown,
   } as const;
 
-  useMounted(m.useMounted);
+  const mountMediator = () => m.useMounted(triggerRef.value, calendarRef.value, timeToggleRef.value);
+
+  useMounted(mountMediator);
+  useEffect(mountMediator, [s.isOpen]);
   useBeforeUnmount(m.useBeforeUnmount);
 
   return (
-    <Slots>
-      <div ref={ref} id={s.inputId} className={p.cls('DateTimePicker', `label-${p.labelPlacement}`, p.className, { 'is-disabled': p.disabled })}>
+    <GlobalContext update={{ [DATETIME_PICKER_TRIGGER_PROPS_CONTEXT_KEY]: targetProps }}>
+      <Slots>
+        <div ref={ref} id={s.inputId} className={p.cls('DateTimePicker', `label-${p.labelPlacement}`, p.className, { 'is-disabled': p.disabled })}>
         <div className={p.cls('field')}>
           <div className={p.cls('control')}>
-            <Slot name='target' props={targetProps}>
+            <Slot name='target'>
               <button {...targetProps} type='button' className={p.cls('trigger')} disabled={p.disabled}>
                 <span className={p.cls('triggerValue', { placeholder: !m.displayValue() })}>{m.displayValue() || p.placeholder}</span>
                 <span className={p.cls('arrow')} aria-hidden='true'>▼</span>
@@ -42,13 +49,14 @@ export const DateTimePicker = forwardRef<HTMLDivElement, DateTimePickerProps>((p
           {p.label ? <label id={s.labelId} className={p.cls('label', p.labelPlacement)} htmlFor={s.triggerId}>{p.label}</label> : null}
         </div>
       {p.inline ? (
-        <Calendar mediator={m} props={p} className={p.inline ? 'inlineCalendar' : 'popupCalendar'} calendarRef={m.setCalendarReference} />
+        <Calendar mediator={m} props={p} className={p.inline ? 'inlineCalendar' : 'popupCalendar'} calendarRef={calendarRef} timeToggleRef={timeToggleRef} />
       ) : null}
       {!p.inline && s.isOpen ? (
-        <Calendar mediator={m} props={p} className={p.inline ? 'inlineCalendar' : 'popupCalendar'} calendarRef={m.setCalendarReference} />
+        <Calendar mediator={m} props={p} className={p.inline ? 'inlineCalendar' : 'popupCalendar'} calendarRef={calendarRef} timeToggleRef={timeToggleRef} />
       ) : null}
-      </div>
-    </Slots>
+        </div>
+      </Slots>
+    </GlobalContext>
   );
 });
 
