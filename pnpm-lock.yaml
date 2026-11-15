@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@pastweb/components-core':
-        specifier: file:../components-core
-        version: file:../components-core(@floating-ui/dom@1.8.0)(@pastweb/tools@2.7.0(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1))(interactjs@1.10.28)
+        specifier: ^2.0.0
+        version: 2.0.0(@floating-ui/dom@1.8.0)(@pastweb/tools@2.7.0(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1))(interactjs@1.10.28)
       '@pastweb/react':
         specifier: ^2.7.0
         version: 2.7.0(@pastweb/tools@2.7.0(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1))(react-dom@19.2.8(react@19.2.8))(react@19.2.8)(redux@5.0.1)
@@ -793,8 +793,8 @@ packages:
     resolution: {integrity: sha512-7FNeNl8NCE7aINx7WXiKQrPYZWC/hvrTsmk6zmxbI7LTXE7hVek/n8AfVgpe2y82zl3w0HvCHN0bVKMBoJcC0w==}
     engines: {node: '>= 10.0.0'}
 
-  '@pastweb/components-core@file:../components-core':
-    resolution: {directory: ../components-core, type: directory}
+  '@pastweb/components-core@2.0.0':
+    resolution: {integrity: sha512-827Pkbge3VKluLaaTkNCR6FedQF4oK9yX/+1Q9SIwlUz/LfyYwDUzUt+68KexoWE236aBn6BVLFw6bfv2KhVgg==}
     peerDependencies:
       '@floating-ui/dom': ^1.7.2
       '@pastweb/tools': ^2.7.0
@@ -3158,7 +3158,7 @@ snapshots:
       '@parcel/watcher-win32-x64': 2.6.0
     optional: true
 
-  '@pastweb/components-core@file:../components-core(@floating-ui/dom@1.8.0)(@pastweb/tools@2.7.0(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1))(interactjs@1.10.28)':
+  '@pastweb/components-core@2.0.0(@floating-ui/dom@1.8.0)(@pastweb/tools@2.7.0(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1))(interactjs@1.10.28)':
     dependencies:
       '@floating-ui/dom': 1.8.0
       '@pastweb/tools': 2.7.0(@toon-format/toon@4.1.1)(axios@1.19.0)(clsx@2.1.1)(history@5.3.0)(sass@1.103.1)
