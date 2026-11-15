@@ -1,26 +1,10 @@
 /// <reference types="vitest" />
-import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
 
 const WEB_REGEX = '**/tests/**/*.web.test.{js,ts,jsx,tsx}';
 const NODE_REGEX = '**/tests/**/*.node.test.{js,ts,jsx,tsx}';
-const COMPONENTS_CORE_SOURCE = fileURLToPath(new URL('../components-core/src', import.meta.url));
-const REACT_ENTRY = fileURLToPath(new URL('../react/src/index.ts', import.meta.url));
-const aliases = [
-  {
-    find: /^@pastweb\/components-core\/(.+)$/,
-    replacement: `${COMPONENTS_CORE_SOURCE}/$1`,
-  },
-  {
-    find: '@pastweb/components-core',
-    replacement: `${COMPONENTS_CORE_SOURCE}/index.ts`,
-  },
-  { find: '@pastweb/react', replacement: REACT_ENTRY },
-];
-
 export default defineConfig({
   resolve: {
-    alias: aliases,
     dedupe: ['@pastweb/tools', 'react', 'react-dom'],
     tsconfigPaths: true,
   },
@@ -45,7 +29,6 @@ export default defineConfig({
     projects: [
       {
         resolve: {
-          alias: aliases,
           dedupe: ['@pastweb/tools', 'react', 'react-dom'],
           tsconfigPaths: true,
         },
@@ -67,7 +50,6 @@ export default defineConfig({
       },
       {
         resolve: {
-          alias: aliases,
           dedupe: ['@pastweb/tools', 'react', 'react-dom'],
           tsconfigPaths: true,
         },

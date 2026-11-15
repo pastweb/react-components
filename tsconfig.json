@@ -17,8 +17,6 @@
     "verbatimModuleSyntax": true,
     "skipLibCheck": true,
     "paths": {
-      "@pastweb/components-core": ["../components-core/src/index.ts"],
-      "@pastweb/components-core/*": ["../components-core/src/*"],
       "@pastweb/react-components": ["./src/index.ts"],
       "@pastweb/react-components/*": ["./src/*"],
       "@/styles": ["./.storybook/styles/index.ts"]
