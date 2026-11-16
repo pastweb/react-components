@@ -104,6 +104,21 @@ const meta = {
       description: 'Message rendered by the Notification inside the toast.',
       table: { category: 'Example' },
     },
+    onClose: {
+      control: false,
+      description: 'Called when the toast is closed.',
+      table: { category: 'Props', defaultValue: { summary: 'noop' } },
+    },
+    onDestroy: {
+      control: false,
+      description: 'Called when the toast portal entry is destroyed.',
+      table: { category: 'Props', defaultValue: { summary: 'noop' } },
+    },
+    onKeyDown: {
+      control: false,
+      description: 'Called when the toast receives keyboard input.',
+      table: { category: 'Props', defaultValue: { summary: 'noop' } },
+    },
     padding: {
       control: { type: 'number', min: 0, step: 1 },
       description: 'Inner toast padding in pixels.',

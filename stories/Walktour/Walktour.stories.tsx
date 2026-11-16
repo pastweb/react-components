@@ -69,13 +69,18 @@ const meta = {
     className: { control: 'text', description: 'Additional classes applied to the Walktour root.', table: { category: 'Props', defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.className) } } },
     closeOnEscape: { control: 'boolean', description: 'Closes an eligible tour step when Escape is pressed.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.closeOnEscape) } } },
     closeOnMaskClick: { control: 'boolean', description: 'Closes an eligible tour step when the mask is activated.', table: { category: 'Props', defaultValue: { summary: '-' } } },
+    closeLabel: { control: 'text', description: 'Label for the step close action.', table: { category: 'Props', defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.closeLabel) } } },
     disableMask: { control: 'boolean', description: 'Hides the dimmed mask and target spotlight.', table: { category: 'Props', defaultValue: { summary: '-' } } },
     disableMaskInteraction: { control: 'boolean', description: 'Prevents interaction with the highlighted target.', table: { category: 'Props', defaultValue: { summary: '-' } } },
+    initialStepIndex: { control: { type: 'number', min: 0, step: 1 }, description: 'Initial step index used when the tour opens.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.initialStepIndex) } } },
     maskPadding: { control: { type: 'number', min: 0, step: 1 }, description: 'Space around the highlighted target in pixels.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.maskPadding) } } },
     maskRadius: { control: { type: 'number', min: 0, step: 1 }, description: 'Target spotlight corner radius in pixels.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.maskRadius) } } },
+    nextLabel: { control: 'text', description: 'Label for the next-step action.', table: { category: 'Props', defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.nextLabel) } } },
     offset: { control: { type: 'number', min: 0, step: 1 }, description: 'Gap between a target and its tour card in pixels.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.offset) } } },
     placement: { control: 'select', options: ['top', 'right', 'bottom', 'left', 'center'], description: 'Default tour-card placement.', table: { category: 'Props', defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.placement) } } },
+    previousLabel: { control: 'text', description: 'Label for the previous-step action.', table: { category: 'Props', defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.previousLabel) } } },
     scrollIntoView: { control: 'boolean', description: 'Scrolls the active target into view when needed.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.scrollIntoView) } } },
+    zIndex: { control: { type: 'number', min: 0, step: 1 }, description: 'Stacking order for the tour overlay.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.zIndex) } } },
   },
 } satisfies Meta<WalktourStoryArgs>;
 

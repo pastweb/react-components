@@ -143,6 +143,14 @@ const meta = {
         defaultValue: { summary: String(DEFAULT_PROPS.hideOnBlur) },
       },
     },
+    hideOnClick: {
+      control: 'boolean',
+      description: 'Closes after activation inside the revealed content.',
+      table: {
+        category: 'Props',
+        defaultValue: { summary: String(DEFAULT_PROPS.hideOnClick) },
+      },
+    },
     hideOnClickOut: {
       control: 'boolean',
       description: 'Closes after activation outside the DropDown.',
@@ -265,6 +273,15 @@ const meta = {
       table: {
         category: 'Props',
         defaultValue: { summary: DEFAULT_PROPS.visibleOn },
+      },
+    },
+    visibleTarget: {
+      control: 'select',
+      options: ['element', 'pointer'],
+      description: 'Selects whether positioning uses the trigger element or the pointer position.',
+      table: {
+        category: 'Props',
+        defaultValue: { summary: DEFAULT_PROPS.visibleTarget },
       },
     },
   },

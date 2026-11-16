@@ -1,8 +1,13 @@
+import { useMemo } from 'react';
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { createEntry, Portal, PortalsProvider, usePortal } from '@pastweb/react';
 import { DEFAULT_PROPS, useWindowContext } from '@pastweb/react-components/WindowController';
+import { Button } from '../Button/components';
 import { Panel } from '../Panel/components';
 import { WindowController as WindowControllerComponent } from './components';
+
+const anchorsIds = { window: 'window-controller-preview-anchor' };
 
 type WindowControllerStoryArgs = Omit<ComponentProps<typeof WindowControllerComponent>, 'children'> & {
   content: string;
@@ -15,14 +20,46 @@ function WindowContent({ content, title }: Pick<WindowControllerStoryArgs, 'cont
   return <Panel closeButton onClose={() => close()} title={title}>{content}</Panel>;
 }
 
+function WindowControllerPortal(props: WindowControllerStoryArgs) {
+  const portal = usePortal();
+  const { content, title, ...windowProps } = props;
+
+  return (
+    <>
+      <Button onClick={() => portal.open()}>Open window</Button>
+      <Portal path='window' use={portal}>
+        <WindowControllerComponent {...windowProps}>
+          <WindowContent content={content} title={title} />
+        </WindowControllerComponent>
+      </Portal>
+    </>
+  );
+}
+
+function WindowControllerPreview(props: WindowControllerStoryArgs) {
+  const getEntry = useMemo(
+    () => () => createEntry({
+      Providers: ({ children }) => (
+        <PortalsProvider anchorsIds={anchorsIds} getEntry={getEntry}>
+          {children}
+        </PortalsProvider>
+      ),
+    }),
+    [],
+  );
+
+  return (
+    <PortalsProvider anchorsIds={anchorsIds} getEntry={getEntry}>
+      <WindowControllerPortal {...props} />
+      <div id={anchorsIds.window} />
+    </PortalsProvider>
+  );
+}
+
 const meta = {
   title: 'Components/WindowController',
   component: WindowControllerComponent,
-  render: ({ content, title, ...args }) => (
-    <WindowControllerComponent {...args}>
-      <WindowContent content={content} title={title} />
-    </WindowControllerComponent>
-  ),
+  render: props => <WindowControllerPreview {...props} />,
   parameters: { layout: 'fullscreen' },
   args: {
     ...DEFAULT_PROPS,
@@ -38,7 +75,11 @@ const meta = {
     content: { control: 'text', description: 'Body content rendered by the Panel inside the window.', table: { category: 'Example' } },
     height: { control: { type: 'number', min: 100, step: 10 }, description: 'Initial window height in pixels.', table: { category: 'Props' } },
     mode: { control: 'select', options: ['modal', 'floating'], description: 'Modal dialog or movable floating work surface.', table: { category: 'Props', defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.mode) } } },
+    moveCursor: { control: 'boolean', description: 'Enables the move cursor for floating windows.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.moveCursor) } } },
+    onClose: { control: false, description: 'Called when the window closes.', table: { category: 'Props', defaultValue: { summary: 'noop' } } },
+    onKeyDown: { control: false, description: 'Called when the window receives keyboard input.', table: { category: 'Props', defaultValue: { summary: 'noop' } } },
     resizable: { control: 'boolean', description: 'Enables resize handles for floating windows.', table: { category: 'Props', defaultValue: { summary: '-' } } },
+    resizeCursor: { control: 'boolean', description: 'Enables resize cursors for floating windows.', table: { category: 'Props', defaultValue: { summary: String(DEFAULT_PROPS.resizeCursor) } } },
     title: { control: 'text', description: 'Panel heading inside the window.', table: { category: 'Example' } },
     width: { control: { type: 'number', min: 100, step: 10 }, description: 'Initial window width in pixels.', table: { category: 'Props' } },
   },

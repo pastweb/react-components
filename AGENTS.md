@@ -66,6 +66,26 @@ This package adds only the renderer- and Storybook-specific rules below.
 - Keep behavior in the mediator. JSX handlers may adapt a native event and call
   the mediator, but must not duplicate state transitions or validation.
 
+## Documentation snippet standard
+
+- Use two-space indentation in TSX and TypeScript examples.
+- Group React, renderer, application utility, and local type imports together,
+  then leave one blank line before component style-module imports.
+- Import the matching style module from `@pastweb/components-core` and call
+  `cl.setClasses(classes)` immediately after the style import.
+- Leave one blank line after class-processor setup before the component export or
+  remaining adapter declarations.
+- In renderer-extension examples, use an alias for the package renderer when
+  the application wrapper has the same public component name, then pass
+  `cls={cls}` and forward the ref explicitly.
+- In renderer READMEs, document CSS utility classes only when they are defined
+  by the matching `@pastweb/components-core` README. Do not list application-
+  level theme, size, or layout utilities as package features; distinguish them
+  from renderer-owned state classes such as `is-disabled` or `is-open`.
+- Reference shared component documentation with the published package path
+  `@pastweb/components-core/<Component>/README.md`; do not expose relative
+  workspace filesystem paths in renderer documentation.
+
 ## Accessibility and usability
 
 - Treat WCAG 2.2 Level AA as the minimum target and follow the relevant WAI-ARIA

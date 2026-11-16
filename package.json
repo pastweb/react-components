@@ -1,7 +1,24 @@
 {
   "name": "@pastweb/react-components",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "React renderers for the framework-neutral component contracts in @pastweb/components-core.",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/pastweb/react-components#readme",
+  "bugs": {
+    "url": "https://github.com/pastweb/react-components/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pastweb/react-components.git"
+  },
+  "author": "Domenico Pasto",
+  "funding": "https://github.com/sponsors/pastweb",
+  "files": [
+    "./dist",
+    "README.md",
+    "LICENSE"
+  ],
   "keywords": [
     "pastweb",
     "react",
@@ -12,7 +29,6 @@
     "ssr",
     "typescript"
   ],
-  "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.cts",
@@ -27,13 +43,13 @@
     "test": "vitest"
   },
   "peerDependencies": {
-    "@pastweb/components-core": "^2.0.0",
+    "@pastweb/components-core": "^2.2.0",
     "@pastweb/react": "^2.7.0",
     "@pastweb/tools": "^2.7.0",
     "react": "^19.2.7"
   },
   "devDependencies": {
-    "@pastweb/components-core": "^2.0.0",
+    "@pastweb/components-core": "^2.2.0",
     "@pastweb/react": "^2.7.0",
     "@pastweb/tools": "^2.7.0",
     "@storybook/addon-a11y": "10.5.10",
@@ -788,6 +804,7 @@
       "import": "./dist/WindowController/WindowController.mjs",
       "require": "./dist/WindowController/WindowController.cjs"
     },
-    "./*": "./*"
+    "./*": "./*",
+    "./*/README.md": "./dist/*/README.md"
   }
 }

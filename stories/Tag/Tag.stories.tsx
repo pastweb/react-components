@@ -60,6 +60,30 @@ const meta = {
         defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.className) },
       },
     },
+    closeButton: {
+      control: 'boolean',
+      description: 'Displays the close button.',
+      table: {
+        category: 'Props',
+        defaultValue: { summary: '-' },
+      },
+    },
+    closeLabel: {
+      control: 'text',
+      description: 'Accessible label for the close button.',
+      table: {
+        category: 'Props',
+        defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.closeLabel) },
+      },
+    },
+    onClose: {
+      control: false,
+      description: 'Called when the close button is activated.',
+      table: {
+        category: 'Props',
+        defaultValue: { summary: 'noop' },
+      },
+    },
     rounded: {
       control: 'boolean',
       description: 'Applies is-rounded.',

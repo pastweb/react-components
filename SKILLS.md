@@ -68,6 +68,37 @@ do not duplicate or weaken those documents here.
 - Keep MDX usage examples copyable, import renderer examples from the documented
   package path, and identify any shared mediator contract they demonstrate.
 
+## README and adapter code-snippet standard
+
+Keep React renderer examples consistent and directly reusable:
+
+- Use two-space indentation in TSX and TypeScript examples.
+- Group React, renderer, application utility, and local type imports together in
+  that order. Leave one blank line before CSS module imports.
+- Import the matching component stylesheet as a module from the public
+  `@pastweb/components-core` contract. Use the nested style module for a nested
+  renderer.
+- Call `cl.setClasses(classes)` immediately after the stylesheet import and
+  leave one blank line before exporting the adapter component.
+- When an application adapter has the same name as the package renderer, alias
+  the renderer import (for example, `Accordion as A`) to make the wrapper
+  boundary explicit.
+- Keep `forwardRef`, the normalized props, `ref`, `cls={cls}`, and the renderer
+  invocation visible in the adapter example. Do not hide the style or ref bridge
+  behind an unrelated helper.
+- Keep a blank line between import groups and initialization groups; do not
+  combine style imports or class-processor setup with unrelated declarations.
+- Show callback-prop and renderer-event support together whenever both are part
+  of the public contract, preserving the core argument order.
+- Copy CSS utility-class documentation from the matching
+  `@pastweb/components-core/<Component>/README.md` only when that core README
+  defines public utilities. Do not document application-level theme, size, or
+  layout classes in renderer READMEs. Internal renderer state classes may be
+  described separately when they are part of the rendering contract.
+- Use `@pastweb/components-core/<Component>/README.md` when referencing the
+  shared documentation from a renderer README. Keep workspace-relative source
+  paths out of published package documentation.
+
 ## Tests and verification
 
 - Use Vitest, React Testing Library, and `user-event` for rendered behavior.

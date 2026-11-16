@@ -42,15 +42,72 @@ needs a different duration. The shared core contract owns the public props,
 mediator state, IDs, CSS variables, keyboard behavior, and native-renderer
 mapping.
 
+## Slots and context
+
+<table>
+  <thead>
+    <tr>
+      <th>Slot</th>
+      <th>React representation</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><code>default</code></td><td><code>children</code></td><td>Supplies the ordered <code>AccordionPanel</code> children.</td></tr>
+    <tr><td><code>header</code></td><td><code>&lt;Template name='header'&gt;...&lt;/Template&gt;</code></td><td>Replaces content inside the native trigger without replacing its heading or button.</td></tr>
+    <tr><td><code>default</code> on <code>AccordionPanel</code></td><td>ordinary <code>children</code></td><td>Supplies panel content.</td></tr>
+  </tbody>
+</table>
+
+The header template must provide a meaningful accessible name. Decorative icons
+should use <code>aria-hidden='true'</code>. Accordion publishes its core context
+for descendant panels; consumers normally compose <code>AccordionPanel</code>
+inside <code>Accordion</code> rather than reading that context directly.
+
+## Styling and callbacks
+
+The renderer receives a <code>cls</code> function from the application extension,
+which maps the public CSS modules from
+<code>@pastweb/components-core/Accordion</code> and
+<code>@pastweb/components-core/Accordion/AccordionPanel</code>. Accordion does
+not define public theme or size utility classes at the package level; use the
+application's utility classes only when its stylesheet provides them.
+
+<code>onOpenChange</code> remains a regular React callback. It receives the next
+open state, and no event-emitter bridge is required.
+
 ## React adapter API
 
-| Surface | React behavior |
-|---|---|
-| `Accordion` ref | Forwards to the root `div` that contains the complete accordion. |
-| `AccordionPanel` ref | Forwards to the semantic `section` for that panel. |
-| `children` | `Accordion` receives `AccordionPanel` children in document order. Each panel receives its expandable content as children. |
-| `Template name="header"` | Replaces content inside a panel's native trigger button. The heading, button, IDs, ARIA relationships, and keyboard behavior remain renderer-owned. |
-| Context | `Accordion` publishes the core Accordion context for its `AccordionPanel` descendants. Consumers normally compose with `AccordionPanel` rather than reading it directly. |
+<table>
+  <thead>
+    <tr>
+      <th>Surface</th>
+      <th>React behavior</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Accordion</code> ref</td>
+      <td>Forwards to the root <code>div</code> that contains the complete accordion.</td>
+    </tr>
+    <tr>
+      <td><code>AccordionPanel</code> ref</td>
+      <td>Forwards to the semantic <code>section</code> for that panel.</td>
+    </tr>
+    <tr>
+      <td><code>children</code></td>
+      <td><code>Accordion</code> receives <code>AccordionPanel</code> children in document order. Each panel receives its expandable content as children.</td>
+    </tr>
+    <tr>
+      <td><code>Template name="header"</code></td>
+      <td>Replaces content inside a panel's native trigger button. The heading, button, IDs, ARIA relationships, and keyboard behavior remain renderer-owned.</td>
+    </tr>
+    <tr>
+      <td>Context</td>
+      <td><code>Accordion</code> publishes the core Accordion context for its <code>AccordionPanel</code> descendants. Consumers normally compose with <code>AccordionPanel</code> rather than reading it directly.</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Accordion Preview
 
@@ -69,6 +126,14 @@ mapping.
   only when the content needs a navigable landmark.
 - Custom header content belongs inside `Template name="header"` and must still
   provide a meaningful trigger name. Do not render another button in that slot.
+- Shared styles preserve visible focus and honor reduced-motion and forced-colors
+  preferences.
+
+## Standards
+
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/)
+- [WAI-ARIA Accordion pattern](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/)
+- [GOV.UK Accordion guidance](https://design-system.service.gov.uk/components/accordion/)
 
 ## Accordion implementation
 

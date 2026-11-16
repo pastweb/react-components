@@ -20,5 +20,17 @@ export default defineConfig({
       /^@pastweb\/components-core\//,
     ],
   },
-  exports: { all: true },
+  copy: [
+    {
+      from: 'src/**/README.md',
+      to: 'dist',
+      flatten: false,
+    },
+  ],
+  exports: {
+    all: true,
+    customExports: {
+      './*/README.md': './dist/*/README.md',
+    },
+  },
 });

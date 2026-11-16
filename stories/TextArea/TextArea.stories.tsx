@@ -66,6 +66,14 @@ const meta = {
         defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.ariaLabel) },
       },
     },
+    className: {
+      control: 'text',
+      description: 'Additional class names applied to the TextArea.',
+      table: {
+        category: 'Props',
+        defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.className) },
+      },
+    },
     disabled: {
       control: 'boolean',
       description: 'Makes the field unavailable.',
@@ -90,6 +98,28 @@ const meta = {
         defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.label) },
       },
     },
+    labelPlacement: {
+      control: 'select',
+      options: [
+        'top',
+        'top-start',
+        'top-end',
+        'right',
+        'right-start',
+        'right-end',
+        'bottom',
+        'bottom-start',
+        'bottom-end',
+        'left',
+        'left-start',
+        'left-end',
+      ],
+      description: 'Places the visible label around the field.',
+      table: {
+        category: 'Props',
+        defaultValue: { summary: DEFAULT_PROPS.labelPlacement },
+      },
+    },
     onChange: {
       control: false,
       description: 'Called with the current value.',
@@ -112,6 +142,14 @@ const meta = {
       table: {
         category: 'Props',
         defaultValue: { summary: '-' },
+      },
+    },
+    tabIndex: {
+      control: 'number',
+      description: 'Controls the TextArea position in the sequential keyboard focus order.',
+      table: {
+        category: 'Props',
+        defaultValue: { summary: String(DEFAULT_PROPS.tabIndex) },
       },
     },
     value: {
