@@ -59,9 +59,6 @@ importers:
       fake-indexeddb:
         specifier: ^6.2.5
         version: 6.2.8
-      install:
-        specifier: ^0.13.0
-        version: 0.13.0
       jsdom:
         specifier: ^29.1.1
         version: 29.1.1
@@ -1902,10 +1899,6 @@ packages:
   indent-string@4.0.0:
     resolution: {integrity: sha512-EdDDZu4A2OyIK7Lr/2zG+w5jmbuk1DVBnEwREQvBzspBJkCEbRa8GxU1lghYcaGJCnRWibjDXlq779X1/y5xwg==}
     engines: {node: '>=8'}
-
-  install@0.13.0:
-    resolution: {integrity: sha512-zDml/jzr2PKU9I8J/xyZBQn8rPCAY//UOYNmR01XwNwyfhEWObo2SWfSl1+0tm1u6PhxLwDnfsT/6jB7OUxqFA==}
-    engines: {node: '>= 0.10'}
 
   interactjs@1.10.28:
     resolution: {integrity: sha512-QCa4ksTPd2p/FZ4I6hrH6fogjLqru1TxYywRiKYNuLZtrlAxTIYUa/MYsE7PnUgWZJU3SrGVDjiz065BeaXYng==}
@@ -4168,8 +4161,6 @@ snapshots:
   import-without-cache@0.4.1: {}
 
   indent-string@4.0.0: {}
-
-  install@0.13.0: {}
 
   interactjs@1.10.28:
     dependencies:

@@ -1,6 +1,6 @@
 {
   "name": "@pastweb/react-components",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "React renderers for the framework-neutral component contracts in @pastweb/components-core.",
   "type": "module",
   "license": "MIT",
@@ -66,7 +66,6 @@
     "axe-core": "^4.12.1",
     "core-js": "^3.49.0",
     "fake-indexeddb": "^6.2.5",
-    "install": "^0.13.0",
     "jsdom": "^29.1.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",

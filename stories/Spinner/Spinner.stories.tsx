@@ -9,7 +9,10 @@ import {
   withSharedCssModules,
   type SharedCssModuleArgs,
 } from '../sharedCssModules';
+import { Icon as IconComponent } from '../Icon/components';
 import { Spinner as SpinnerComponent } from './components';
+
+const SPINNER_ICON = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10h-2a8 8 0 1 1-8-8V2Z"/></svg>';
 
 type SpinnerStoryArgs = ComponentProps<typeof SpinnerComponent> & SharedCssModuleArgs;
 
@@ -18,10 +21,17 @@ const meta = {
   component: SpinnerComponent,
   render: ({ className, theme, sizeClass, outlined, ...args }) => (
     withSharedCssModules(
-      <SpinnerComponent
-        {...args}
-        className={sharedCssModuleClassName(className, { theme, sizeClass, outlined })}
-      />,
+      <div style={{ display: 'flex', minHeight: 220, width: '100%', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
+        <div style={{ fontSize: '4rem' }}>
+          <SpinnerComponent
+            {...args}
+            className={sharedCssModuleClassName(className, { theme, sizeClass, outlined })}
+          >
+            <IconComponent src={SPINNER_ICON} />
+          </SpinnerComponent>
+        </div>
+        <span aria-live='polite'>Loading data…</span>
+      </div>,
     )
   ),
   parameters: {
@@ -35,7 +45,6 @@ const meta = {
   args: {
     ...SHARED_CSS_MODULE_ARGS,
     ...DEFAULT_PROPS,
-    children: '◌',
   },
   argTypes: {
     ...SHARED_CSS_MODULE_ARG_TYPES,
@@ -46,11 +55,6 @@ const meta = {
         category: 'Props',
         defaultValue: { summary: JSON.stringify(DEFAULT_PROPS.ariaLabel) },
       },
-    },
-    children: {
-      control: 'text',
-      description: 'Decorative glyph hidden from assistive technology.',
-      table: { category: 'Props' },
     },
     className: {
       control: 'text',
