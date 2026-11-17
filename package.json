@@ -1,6 +1,6 @@
 {
   "name": "@pastweb/react-components",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "React renderers for the framework-neutral component contracts in @pastweb/components-core.",
   "type": "module",
   "license": "MIT",
@@ -44,13 +44,13 @@
   },
   "peerDependencies": {
     "@pastweb/components-core": "^2.2.2",
-    "@pastweb/react": "^2.7.0",
+    "@pastweb/react": "^2.7.1",
     "@pastweb/tools": "^2.7.0",
     "react": "^19.2.7"
   },
   "devDependencies": {
     "@pastweb/components-core": "^2.2.2",
-    "@pastweb/react": "^2.7.0",
+    "@pastweb/react": "^2.7.1",
     "@pastweb/tools": "^2.7.0",
     "@storybook/addon-a11y": "10.5.10",
     "@storybook/addon-docs": "10.5.10",

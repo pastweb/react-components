@@ -12,8 +12,8 @@ importers:
         specifier: ^2.2.2
         version: 2.2.2(@floating-ui/dom@1.8.0)(@pastweb/tools@2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2))(interactjs@1.10.28)
       '@pastweb/react':
-        specifier: ^2.7.0
-        version: 2.7.0(@pastweb/tools@2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(redux@5.0.1)
+        specifier: ^2.7.1
+        version: 2.7.1(@pastweb/tools@2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@pastweb/tools':
         specifier: ^2.7.0
         version: 2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2)
@@ -52,7 +52,7 @@ importers:
         version: 4.1.12(vitest@4.1.12)
       axe-core:
         specifier: ^4.12.1
-        version: 4.14.0
+        version: 4.14.1
       core-js:
         specifier: ^3.49.0
         version: 3.51.0
@@ -808,10 +808,10 @@ packages:
       '@pastweb/tools': ^2.7.0
       interactjs: ^1.10.27
 
-  '@pastweb/react@2.7.0':
-    resolution: {integrity: sha512-5n1+ktyfjyRpi/x8reT7KOoGPuvzO38XV2Q6KOhxTcvTlhSCMokY9a0cJa6q3zp3IsCDMTOK+HXWcaDv94BedA==}
+  '@pastweb/react@2.7.1':
+    resolution: {integrity: sha512-bngOymkaSeC0I/FIeHn4XC0jfI+fEzi3YnlrG7KoQAlxFjhyXfJR+MljwHn1XhzB9mx8PBYcTLQLR8uwHS9gsA==}
     peerDependencies:
-      '@pastweb/tools': ^2.6.0
+      '@pastweb/tools': ^2.7.1
       '@reduxjs/toolkit': '*'
       react: ^19.2.0
       react-dom: ^19.2.0
@@ -821,6 +821,8 @@ packages:
       '@reduxjs/toolkit':
         optional: true
       react-redux:
+        optional: true
+      redux:
         optional: true
 
   '@pastweb/tools@2.7.0':
@@ -1584,8 +1586,8 @@ packages:
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
-  axe-core@4.14.0:
-    resolution: {integrity: sha512-9WTZxEjsZ7b13TH8JPmbV2z8CHbl80/2hm3XPEG4JgNdQLK81IBRXmSxHfMAOkSqQeRxT/0dwNDz2GOm3zzpcQ==}
+  axe-core@4.14.1:
+    resolution: {integrity: sha512-FHfa+lmNjQZfJz1q8wKqIDwC6DExcHt/pkjNQb09a3NPjCKg2rhu5qb2S4r76ASyFNNtuFooJpZe37OgudVGtQ==}
     engines: {node: '>=4'}
 
   axios@1.21.1:
@@ -2205,9 +2207,6 @@ packages:
   redent@3.0.0:
     resolution: {integrity: sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==}
     engines: {node: '>=8'}
-
-  redux@5.0.1:
-    resolution: {integrity: sha512-M9/ELqF6fy8FwmkpnF0S3YKOqMyoWJ4+CS5Efg2ct3oY9daQvd/Pc71FpGZsVsbl3Cpb+IIcjBDUnnyBdQbq4w==}
 
   require-from-string@2.0.2:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
@@ -3294,12 +3293,11 @@ snapshots:
       '@pastweb/tools': 2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2)
       interactjs: 1.10.28
 
-  '@pastweb/react@2.7.0(@pastweb/tools@2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)(redux@5.0.1)':
+  '@pastweb/react@2.7.1(@pastweb/tools@2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
     dependencies:
       '@pastweb/tools': 2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2)
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
-      redux: 5.0.1
 
   '@pastweb/tools@2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2)':
     dependencies:
@@ -3431,7 +3429,7 @@ snapshots:
   '@storybook/addon-a11y@10.5.10(storybook@10.5.10(@types/react@19.3.0)(react@19.3.1))':
     dependencies:
       '@storybook/global': 5.0.0
-      axe-core: 4.14.0
+      axe-core: 4.14.1
       storybook: 10.5.10(@types/react@19.3.0)(react@19.3.1)
 
   '@storybook/addon-docs@10.5.10(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(esbuild@0.28.2)(storybook@10.5.10(@types/react@19.3.0)(react@19.3.1))(vite@8.3.8(@types/node@26.6.6)(esbuild@0.28.2)(sass-embedded@1.108.2)(sass@1.108.2))':
@@ -3871,7 +3869,7 @@ snapshots:
 
   asynckit@0.4.0: {}
 
-  axe-core@4.14.0: {}
+  axe-core@4.14.1: {}
 
   axios@1.21.1:
     dependencies:
@@ -4477,8 +4475,6 @@ snapshots:
     dependencies:
       indent-string: 4.0.0
       strip-indent: 3.0.0
-
-  redux@5.0.1: {}
 
   require-from-string@2.0.2: {}
 

@@ -7,3 +7,4 @@ minimumReleaseAgeExclude:
   - '@pastweb/components-core@2.0.0'
   - '@pastweb/components-core@2.2.0'
   - '@pastweb/components-core@2.2.2'
+  - '@pastweb/react@2.7.1'
