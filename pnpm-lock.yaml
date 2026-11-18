@@ -9,14 +9,14 @@ importers:
   .:
     devDependencies:
       '@pastweb/components-core':
-        specifier: ^2.2.2
-        version: 2.2.2(@floating-ui/dom@1.8.0)(@pastweb/tools@2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2))(interactjs@1.10.28)
+        specifier: ^2.9.0
+        version: 2.9.0(@floating-ui/dom@1.8.0)(@pastweb/tools@2.9.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2))(interactjs@1.10.28)
       '@pastweb/react':
-        specifier: ^2.7.1
-        version: 2.7.1(@pastweb/tools@2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+        specifier: ^2.9.0
+        version: 2.9.0(@pastweb/tools@2.9.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@pastweb/tools':
-        specifier: ^2.7.0
-        version: 2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2)
+        specifier: ^2.9.0
+        version: 2.9.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2)
       '@storybook/addon-a11y':
         specifier: 10.5.10
         version: 10.5.10(storybook@10.5.10(@types/react@19.3.0)(react@19.3.1))
@@ -195,40 +195,40 @@ packages:
   '@bufbuild/protobuf@2.17.0':
     resolution: {integrity: sha512-hcPkSz6D7MiTU/5VBBhK+kxaYDoOdQ6yJRFJ3kS8Nydp+VZXfg1vrpABKPNod8bXMufsVCmiUJVIKFzCzta4uw==}
 
-  '@csstools/color-helpers@6.1.2':
-    resolution: {integrity: sha512-grhRy3OKmniaAEKXMjua5z/EODX0MSqBGjunw8+j/3HQjOnahs2AGhvEOIYVUWcU6ScApbhLhVrQTX8XqrMrow==}
+  '@csstools/color-helpers@6.1.3':
+    resolution: {integrity: sha512-c6CpX5G1pvuOKTXiRFJ54Lzc8zQrZ3qUjp44QC5DJNt1OmA1vmfUxOMCcKdDqsvffVDG0/MHnY63J+Mn0nmdUg==}
     engines: {node: '>=20.19.0'}
 
-  '@csstools/css-calc@3.4.3':
-    resolution: {integrity: sha512-iex20d8CHVkyvg6B7UKV7uHnI2Bqo9g+EFfT9E0y+GvTvhZ/DwONJ+9aKb1dlqm0ZiGsL5RXjp0fCoJYnkeDjA==}
-    engines: {node: '>=20.19.0'}
-    peerDependencies:
-      '@csstools/css-parser-algorithms': ^4.0.2
-      '@csstools/css-tokenizer': ^4.0.2
-
-  '@csstools/css-color-parser@4.2.7':
-    resolution: {integrity: sha512-zgm9yjQz5iJB4VL8RyVwd71TWB8Q89FSxt/NzXoWqPSkEBOVtn9L6vAPtSc9hpKfB0Awo/AL2VKFHjYetBLFHQ==}
+  '@csstools/css-calc@3.4.4':
+    resolution: {integrity: sha512-Jwo1Z8DUsZ8xVOLBdLMfhjJFvWD6pqaUTlBNQZ+qIB2i9g7yG8kd/UBJj2c9J9Twr+u87cjy9BjkmfvMbyOk3Q==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
-      '@csstools/css-parser-algorithms': ^4.0.2
-      '@csstools/css-tokenizer': ^4.0.2
+      '@csstools/css-parser-algorithms': ^4.0.3
+      '@csstools/css-tokenizer': ^4.0.3
 
-  '@csstools/css-parser-algorithms@4.0.2':
-    resolution: {integrity: sha512-40cSKyMvK+tq4qz6Awrlye2WGuOKt3FwPgtGg6KTfbHOWNw+Rk1rzbAtZnZ6IBhsY491HLRnDXwoyBAijmmILA==}
+  '@csstools/css-color-parser@4.2.8':
+    resolution: {integrity: sha512-JLsKBee9dmnA3L+H+vYK4lQ6n5CoY3yEnh33zdlMutRfrTxtqt+hFeoZ1maHRt5vLw67huDLpOkDb3rl9A51MQ==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
-      '@csstools/css-tokenizer': ^4.0.2
+      '@csstools/css-parser-algorithms': ^4.0.3
+      '@csstools/css-tokenizer': ^4.0.3
 
-  '@csstools/css-syntax-patches-for-csstree@1.1.16':
-    resolution: {integrity: sha512-LsDbJPP/B8cPasUJyTA5S99F7C4G93ngW8hUluXz8CFeOaaRnBPtBiIlvgcPYU0HmHNz8CXg+1vwFrIB4F6Dgw==}
+  '@csstools/css-parser-algorithms@4.0.3':
+    resolution: {integrity: sha512-EpCfUDaJtwohPHC7egoXxPGT/R1/WyyAhw87MKB/7BPPZvZU+IcEqo4er5FpLnby2Gvwt9Lpxy+WNEDyFjoXtA==}
+    engines: {node: '>=20.19.0'}
+    peerDependencies:
+      '@csstools/css-tokenizer': ^4.0.3
+
+  '@csstools/css-syntax-patches-for-csstree@1.1.17':
+    resolution: {integrity: sha512-IPx9W33+t0Yt5TVb+Y7oICrThOIry0TY6GuXfSHOatxA0uiHqbzi98Gai905lpBAX1m/LH7iI96e9jcI7Dkvxw==}
     peerDependencies:
       css-tree: ^3.2.1
     peerDependenciesMeta:
       css-tree:
         optional: true
 
-  '@csstools/css-tokenizer@4.0.2':
-    resolution: {integrity: sha512-OoKoR0f76dCY666JlcbhmVTs2drYj1GUXZTYTcbUgJjh9Nv41aFfZ21bPQTERm5+L5cBDo466NltB2lplS5GBw==}
+  '@csstools/css-tokenizer@4.0.3':
+    resolution: {integrity: sha512-gdkFe/Z4KU1q8Y5S3GYScXGcOnO56dgWwIs5+97Ij1VIKISItOIUlCXUq4VLbdnRclF+SSQ49sLsn3KeV111AA==}
     engines: {node: '>=20.19.0'}
 
   '@emnapi/core@1.11.0':
@@ -801,17 +801,17 @@ packages:
     resolution: {integrity: sha512-7FNeNl8NCE7aINx7WXiKQrPYZWC/hvrTsmk6zmxbI7LTXE7hVek/n8AfVgpe2y82zl3w0HvCHN0bVKMBoJcC0w==}
     engines: {node: '>= 10.0.0'}
 
-  '@pastweb/components-core@2.2.2':
-    resolution: {integrity: sha512-F9r5nhaosKOy92lSeJEuaOVtIjipIZH2oxLMbdB3uszt4yk2aFCwV7zp5ya6dGmGRtt+zg2wq3LX7K7mDdGmxw==}
+  '@pastweb/components-core@2.9.0':
+    resolution: {integrity: sha512-Yh9qD64FNYguCk9W+0JuE1Y3wOKyuMXO8okG5AenB5ZopF2XwAq96ry6VprMb1WBN8WQQAwRPClfM4bkzak30w==}
     peerDependencies:
       '@floating-ui/dom': ^1.7.2
-      '@pastweb/tools': ^2.7.0
+      '@pastweb/tools': ^2.9.0
       interactjs: ^1.10.27
 
-  '@pastweb/react@2.7.1':
-    resolution: {integrity: sha512-bngOymkaSeC0I/FIeHn4XC0jfI+fEzi3YnlrG7KoQAlxFjhyXfJR+MljwHn1XhzB9mx8PBYcTLQLR8uwHS9gsA==}
+  '@pastweb/react@2.9.0':
+    resolution: {integrity: sha512-Wy/WjvZ9+qqtEN6DL8F6+Xa1JdSqTeuUC7wK+GabTrhOeO7X6Fzm+E+qdUusaTRWfd8P6q/RTqso0LDBt5CF6A==}
     peerDependencies:
-      '@pastweb/tools': ^2.7.1
+      '@pastweb/tools': ^2.9.0
       '@reduxjs/toolkit': '*'
       react: ^19.2.0
       react-dom: ^19.2.0
@@ -825,8 +825,8 @@ packages:
       redux:
         optional: true
 
-  '@pastweb/tools@2.7.0':
-    resolution: {integrity: sha512-6obNuuGycOzybeyo8GmUWZMfPhpZbkxcaRB4PiV3zosZewxv5xSmt7RP6ddZ4Q3EW4U1Zfx2YU7TtfJ9y19tlQ==}
+  '@pastweb/tools@2.9.0':
+    resolution: {integrity: sha512-ubjO1L5k0lljtunEFwk4Ac+BtpNH3Uc0MeXrrurXBaw8rG0t3wfwmAuqVCFpb9vWUYCEmaNuS5MdhPsbjuNtGg==}
     peerDependencies:
       '@toon-format/toon': '*'
       '@urql/core': ^6.0.3
@@ -1597,8 +1597,8 @@ packages:
     resolution: {integrity: sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==}
     engines: {node: 18 || 20 || >=22}
 
-  baseline-browser-mapping@2.11.37:
-    resolution: {integrity: sha512-QYph+vfurmaxhNwi9FprfmtkT5cx2Keg8FzZ0vnjO8ukscIybVyZGMFwdllKGlTI6qyU8ck43OM9UXh+IFJihQ==}
+  baseline-browser-mapping@2.11.38:
+    resolution: {integrity: sha512-rMgy5YW7x28SMfXHLlVZDBqlWzYZ0x2rVR/6FWrNBF0chjigARK1H6nM0hKA1Um3kPOlkQFVtjJs00d2N1ezuw==}
     engines: {node: '>=6.0.0'}
     hasBin: true
 
@@ -1609,8 +1609,8 @@ packages:
     resolution: {integrity: sha512-Vh3dmFbc4wZeox7M9I/0L9GfFd83Su4+yCck/OF9Gi/P/dAHn0RT7X4K9R7gMNMhDck3DvhR6QXsnQdjjgwNvQ==}
     engines: {node: 20 || >=22}
 
-  browserslist@4.29.5:
-    resolution: {integrity: sha512-khTmKu5NGYTotqcYo8Bew2k4RAE9PuXRSFRXG2lQBrCEQHyeQ/vX6gKMxfokwywBsLiXZMnHsmWMG1pnO8J7uQ==}
+  browserslist@4.29.6:
+    resolution: {integrity: sha512-CmVVIQ3RVc5HxYEc9X84GvxK/C8C1wH8TlKAiO7uTxF8PDwt7r8t9Qk3J9NkMOVzX5O/HbLv3yzxZg9HPrnI9w==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
@@ -1669,8 +1669,8 @@ packages:
   css.escape@1.5.1:
     resolution: {integrity: sha512-YUifsXXuknHlUsmlgyY0PKzgPOr7/FjCePfHNt0jxm83wHZi44VDMQ7/fGNkjY3/jV1MC+1CmZbaHzugyeRtpg==}
 
-  csstype@3.2.3:
-    resolution: {integrity: sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ==}
+  csstype@3.2.4:
+    resolution: {integrity: sha512-PoKaoPzQapnEoqUSnHx1u6W6ku8CVEgKsnpmmzU3m1nwkidpPBQ8V/Zq2+bWNrsOKoKLwTGdbx6xF7BXP1zLVQ==}
 
   data-urls@7.0.0:
     resolution: {integrity: sha512-23XHcCF+coGYevirZceTVD7NdJOqVn+49IHyxgszm+JIiHLoB2TkmPtsYkNWT1pvRSGkc35L6NHs0yHkN2SumA==}
@@ -1742,8 +1742,8 @@ packages:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
     engines: {node: '>= 0.4'}
 
-  electron-to-chromium@1.5.486:
-    resolution: {integrity: sha512-rpybw4Ac4ak/An6G1Me2+61xzwobowDGyuJe71QHHOVpkZv4fPVobsLl7WH6zHSKusAMpaHxGKTpOvpy7+r3dQ==}
+  electron-to-chromium@1.5.487:
+    resolution: {integrity: sha512-qWotOhQYeYEj+DK4+Y+cfPj44qiC6ETIiWtJLfmDJydED2BJJ7loPA4SfBbbrMI6X/X3tryJgxnY9nxsO545Zw==}
 
   empathic@2.1.0:
     resolution: {integrity: sha512-AnfC1ATldl49/cvZdLPDjBfrRNwbDO05aibiOtzQu3qtlbJtomNLhF30HEtn/7iBz50dlMECqATo3fG0LrdEgw==}
@@ -2113,8 +2113,8 @@ packages:
   node-addon-api@7.1.1:
     resolution: {integrity: sha512-5m3bsyrjFWE1xf7nz7YXdN4udnVtXK6/Yfgn5qnahL6bCkf2yKt4k3nuTKAtT4r3IG8JNR2ncsIMdZuAzJjHQQ==}
 
-  node-releases@2.0.64:
-    resolution: {integrity: sha512-zAPCKqMcnqs2nGy6nlkm7JduFseiBJy3EXHGLh+8pFR+TxGCBxxiEN21+UROU5CKwX/f4TlUcYjiM+vs/tsyxw==}
+  node-releases@2.0.65:
+    resolution: {integrity: sha512-PfvofsGQ+MiOQIPkX9fU8ELUWmy5zL74CdQaph/ismKszfFkfwXaw0cGiwbwym2hT9k5+mdyl8O5WQ1MD8EHmA==}
     engines: {node: '>=18'}
 
   obug@2.2.1:
@@ -2580,8 +2580,8 @@ packages:
       synckit:
         optional: true
 
-  update-browserslist-db@1.3.4:
-    resolution: {integrity: sha512-t8wonIOdQyOjtPd2VktlBu6QjTVTks6v8bSi7kd0r2Vll8TK1JYDZtRRdbmCHOAMphkZgrzK+L+vXK4pyZ8t4A==}
+  update-browserslist-db@1.4.0:
+    resolution: {integrity: sha512-WPJuOnjI9FWDct4fB+ej4Mz8opLaw5CDcZ2t44tFZ0vIQVYWzBhWR3mkixuUj/A7+vY4V9+ApOZ2YYLwdgq46w==}
     hasBin: true
     peerDependencies:
       browserslist: '>= 4.21.0'
@@ -2753,10 +2753,10 @@ snapshots:
   '@asamuzakjp/css-color@5.1.11':
     dependencies:
       '@asamuzakjp/generational-cache': 1.0.1
-      '@csstools/css-calc': 3.4.3(@csstools/css-parser-algorithms@4.0.2(@csstools/css-tokenizer@4.0.2))(@csstools/css-tokenizer@4.0.2)
-      '@csstools/css-color-parser': 4.2.7(@csstools/css-parser-algorithms@4.0.2(@csstools/css-tokenizer@4.0.2))(@csstools/css-tokenizer@4.0.2)
-      '@csstools/css-parser-algorithms': 4.0.2(@csstools/css-tokenizer@4.0.2)
-      '@csstools/css-tokenizer': 4.0.2
+      '@csstools/css-calc': 3.4.4(@csstools/css-parser-algorithms@4.0.3(@csstools/css-tokenizer@4.0.3))(@csstools/css-tokenizer@4.0.3)
+      '@csstools/css-color-parser': 4.2.8(@csstools/css-parser-algorithms@4.0.3(@csstools/css-tokenizer@4.0.3))(@csstools/css-tokenizer@4.0.3)
+      '@csstools/css-parser-algorithms': 4.0.3(@csstools/css-tokenizer@4.0.3)
+      '@csstools/css-tokenizer': 4.0.3
 
   '@asamuzakjp/dom-selector@7.1.1':
     dependencies:
@@ -2810,7 +2810,7 @@ snapshots:
     dependencies:
       '@babel/compat-data': 7.29.7
       '@babel/helper-validator-option': 7.29.7
-      browserslist: 4.29.5
+      browserslist: 4.29.6
       lru-cache: 5.1.1
       semver: 6.3.2
 
@@ -2880,29 +2880,29 @@ snapshots:
 
   '@bufbuild/protobuf@2.17.0': {}
 
-  '@csstools/color-helpers@6.1.2': {}
+  '@csstools/color-helpers@6.1.3': {}
 
-  '@csstools/css-calc@3.4.3(@csstools/css-parser-algorithms@4.0.2(@csstools/css-tokenizer@4.0.2))(@csstools/css-tokenizer@4.0.2)':
+  '@csstools/css-calc@3.4.4(@csstools/css-parser-algorithms@4.0.3(@csstools/css-tokenizer@4.0.3))(@csstools/css-tokenizer@4.0.3)':
     dependencies:
-      '@csstools/css-parser-algorithms': 4.0.2(@csstools/css-tokenizer@4.0.2)
-      '@csstools/css-tokenizer': 4.0.2
+      '@csstools/css-parser-algorithms': 4.0.3(@csstools/css-tokenizer@4.0.3)
+      '@csstools/css-tokenizer': 4.0.3
 
-  '@csstools/css-color-parser@4.2.7(@csstools/css-parser-algorithms@4.0.2(@csstools/css-tokenizer@4.0.2))(@csstools/css-tokenizer@4.0.2)':
+  '@csstools/css-color-parser@4.2.8(@csstools/css-parser-algorithms@4.0.3(@csstools/css-tokenizer@4.0.3))(@csstools/css-tokenizer@4.0.3)':
     dependencies:
-      '@csstools/color-helpers': 6.1.2
-      '@csstools/css-calc': 3.4.3(@csstools/css-parser-algorithms@4.0.2(@csstools/css-tokenizer@4.0.2))(@csstools/css-tokenizer@4.0.2)
-      '@csstools/css-parser-algorithms': 4.0.2(@csstools/css-tokenizer@4.0.2)
-      '@csstools/css-tokenizer': 4.0.2
+      '@csstools/color-helpers': 6.1.3
+      '@csstools/css-calc': 3.4.4(@csstools/css-parser-algorithms@4.0.3(@csstools/css-tokenizer@4.0.3))(@csstools/css-tokenizer@4.0.3)
+      '@csstools/css-parser-algorithms': 4.0.3(@csstools/css-tokenizer@4.0.3)
+      '@csstools/css-tokenizer': 4.0.3
 
-  '@csstools/css-parser-algorithms@4.0.2(@csstools/css-tokenizer@4.0.2)':
+  '@csstools/css-parser-algorithms@4.0.3(@csstools/css-tokenizer@4.0.3)':
     dependencies:
-      '@csstools/css-tokenizer': 4.0.2
+      '@csstools/css-tokenizer': 4.0.3
 
-  '@csstools/css-syntax-patches-for-csstree@1.1.16(css-tree@3.2.1)':
+  '@csstools/css-syntax-patches-for-csstree@1.1.17(css-tree@3.2.1)':
     optionalDependencies:
       css-tree: 3.2.1
 
-  '@csstools/css-tokenizer@4.0.2': {}
+  '@csstools/css-tokenizer@4.0.3': {}
 
   '@emnapi/core@1.11.0':
     dependencies:
@@ -3287,19 +3287,19 @@ snapshots:
       '@parcel/watcher-win32-x64': 2.6.0
     optional: true
 
-  '@pastweb/components-core@2.2.2(@floating-ui/dom@1.8.0)(@pastweb/tools@2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2))(interactjs@1.10.28)':
+  '@pastweb/components-core@2.9.0(@floating-ui/dom@1.8.0)(@pastweb/tools@2.9.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2))(interactjs@1.10.28)':
     dependencies:
       '@floating-ui/dom': 1.8.0
-      '@pastweb/tools': 2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2)
+      '@pastweb/tools': 2.9.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2)
       interactjs: 1.10.28
 
-  '@pastweb/react@2.7.1(@pastweb/tools@2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
+  '@pastweb/react@2.9.0(@pastweb/tools@2.9.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2))(react-dom@19.3.1(react@19.3.1))(react@19.3.1)':
     dependencies:
-      '@pastweb/tools': 2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2)
+      '@pastweb/tools': 2.9.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2)
       react: 19.3.1
       react-dom: 19.3.1(react@19.3.1)
 
-  '@pastweb/tools@2.7.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2)':
+  '@pastweb/tools@2.9.0(@toon-format/toon@4.4.0)(axios@1.21.1)(clsx@2.1.1)(history@5.3.0)(sass@1.108.2)':
     dependencies:
       '@toon-format/toon': 4.4.0
       axios: 1.21.1
@@ -3618,7 +3618,7 @@ snapshots:
 
   '@types/react@19.3.0':
     dependencies:
-      csstype: 3.2.3
+      csstype: 3.2.4
 
   '@types/resolve@1.20.6': {}
 
@@ -3883,7 +3883,7 @@ snapshots:
 
   balanced-match@4.0.4: {}
 
-  baseline-browser-mapping@2.11.37: {}
+  baseline-browser-mapping@2.11.38: {}
 
   bidi-js@1.1.0:
     dependencies:
@@ -3893,13 +3893,13 @@ snapshots:
     dependencies:
       balanced-match: 4.0.4
 
-  browserslist@4.29.5:
+  browserslist@4.29.6:
     dependencies:
-      baseline-browser-mapping: 2.11.37
+      baseline-browser-mapping: 2.11.38
       caniuse-lite: 1.0.30001826
-      electron-to-chromium: 1.5.486
-      node-releases: 2.0.64
-      update-browserslist-db: 1.3.4(browserslist@4.29.5)
+      electron-to-chromium: 1.5.487
+      node-releases: 2.0.65
+      update-browserslist-db: 1.4.0(browserslist@4.29.6)
 
   bundle-name@4.1.1:
     dependencies:
@@ -3950,7 +3950,7 @@ snapshots:
 
   css.escape@1.5.1: {}
 
-  csstype@3.2.3: {}
+  csstype@3.2.4: {}
 
   data-urls@7.0.0:
     dependencies:
@@ -4002,7 +4002,7 @@ snapshots:
       es-errors: 1.3.0
       gopd: 1.2.0
 
-  electron-to-chromium@1.5.486: {}
+  electron-to-chromium@1.5.487: {}
 
   empathic@2.1.0: {}
 
@@ -4210,7 +4210,7 @@ snapshots:
       '@asamuzakjp/css-color': 5.1.11
       '@asamuzakjp/dom-selector': 7.1.1
       '@bramus/specificity': 2.4.3
-      '@csstools/css-syntax-patches-for-csstree': 1.1.16(css-tree@3.2.1)
+      '@csstools/css-syntax-patches-for-csstree': 1.1.17(css-tree@3.2.1)
       '@exodus/bytes': 1.16.0
       css-tree: 3.2.1
       data-urls: 7.0.0
@@ -4337,7 +4337,7 @@ snapshots:
   node-addon-api@7.1.1:
     optional: true
 
-  node-releases@2.0.64: {}
+  node-releases@2.0.65: {}
 
   obug@2.2.1: {}
 
@@ -4831,9 +4831,9 @@ snapshots:
     dependencies:
       rolldown: 1.3.2
 
-  update-browserslist-db@1.3.4(browserslist@4.29.5):
+  update-browserslist-db@1.4.0(browserslist@4.29.6):
     dependencies:
-      browserslist: 4.29.5
+      browserslist: 4.29.6
       escalade: 3.2.0
       picocolors: 1.1.1
 
